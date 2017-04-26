@@ -1,8 +1,11 @@
 // TO VISIT CONTROLLER VIEW
 
-myApp.controller('ToVisitController', ['UserService', function(UserService){
+myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
   console.log('ToVisitController sourced!');
-  var toVisit = this;
+
+  $scope.userObject = UserService.userObject;
+  $scope.logout = UserService.logout;
+
 }]);
 
 // ADD NEW PLACE

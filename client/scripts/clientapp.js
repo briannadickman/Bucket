@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider',
@@ -61,11 +61,6 @@ myApp.config(['$routeProvider', '$locationProvider',
       templateUrl: 'views/templates/landing.html',
       controller: 'LandingController',
       controllerAs: 'landing'
-    })
-    .when('/register', {
-      templateUrl: 'views/templates/register.html',
-      controller: 'RegisterController',
-      controllerAs: 'register'
     })
     .otherwise({
       redirectTo: 'home'

@@ -1,12 +1,25 @@
-<div class="views-nav">
+<!-- <div class="views-nav">
 
     <div class = 'row navBar'>
       <ul class = 'nav nav-pills'>
-        <!-- <li role = 'presentation'><a href="#/user">User Home</a></li>
-        <li role = 'presentation'><a href="#/info">Info Page</a></li> -->
         <li role = 'presentation'><a href="#/tovisit">To Visit</a></li>
         <li role = 'presentation'><a href="#/visited">Visited</a></li>
         <button class="btn btn-default" ng-click="logout()">Log Out</button>
       </ul>
     </div>
+</div> -->
+
+<div layout="row" layout-align="center center">
+<md-content>
+  <md-nav-bar
+     md-selected-nav-item="currentNavItem"
+     nav-bar-aria-label="navigation links">
+     <md-nav-item md-nav-href="#/tovisit" name="tovisit">
+       To Visit
+     </md-nav-item>
+     <md-nav-item md-nav-href="#/visited" name="visited">
+       Visited
+     </md-nav-item>
+  </md-nav-bar>
+</md-content>
 </div>
