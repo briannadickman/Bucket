@@ -27,7 +27,7 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
 
   $scope.addNewPlace = function(location) {
     console.log('Adding New Place: ', location);
-  }
+  };
 }]);
 
 // SUBMIT FORM TO DATABASE (CREATE)
