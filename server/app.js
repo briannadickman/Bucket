@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
 
+// Passport
 var passport = require('./strategies/userStrategy');
 var session = require('express-session');
 
@@ -46,7 +47,8 @@ if(process.env.MONGODB_URI != undefined) {
     mongoURI = process.env.MONGODB_URI;
 } else {
     // use the local database server
-    mongoURI = 'mongodb://localhost:27017/passport';
+    // mongoURI = 'mongodb://localhost:27017/passport';
+    mongoURI = 'mongodb://localhost:27017/bucketapp';
 }
 
 // var mongoURI = "mongodb://localhost:27017/passport";
@@ -60,7 +62,7 @@ mongoDB.on('error', function(err){
 });
 
 mongoDB.once('open', function(){
-   console.log("Connected to Mongo, meow!");
+   console.log("Connected to Mongo");
 });
 
 // App Set //

@@ -1,7 +1,10 @@
 // VISITED CONTROLLER VIEW
-myApp.controller('VisitedController', ['UserService', function(UserService){
+myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
   console.log('VisitedController sourced!');
-  var visited = this;
+
+  $scope.userObject = UserService.userObject;
+  $scope.logout = UserService.logout;
+
 }]);
 
 // SORT PLACES BY DATE VISITED
