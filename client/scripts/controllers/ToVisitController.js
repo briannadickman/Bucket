@@ -15,7 +15,24 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
     });
   };
 
+  // EXPANSION PANELS
+//     // async
+//     $mdExpansionPanel().waitFor('panelOne').then(function (instance) {
+//       instance.expand();
+//       instance.collapse({animation: false});
+//       instance.remove();
+//       instance.isOpen();
+//     });
+//
+//     // sync
+//     $mdExpansionPanel('panelOne').expand();
+//
+//
+
+
+  // LOAD CARDS ON PAGE LOAD
   $scope.getPlaces();
+
 }]);
 
 // ADD NEW PLACE

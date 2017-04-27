@@ -35,32 +35,62 @@ myApp.config(['$routeProvider', '$locationProvider',
     .when('/tovisit', {
       templateUrl: 'views/templates/tovisit.html',
       controller: 'ToVisitController',
-      controllerAs: 'tovisit'
+      controllerAs: 'tovisit',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
     })
     .when('/visited', {
       templateUrl: 'views/templates/visited.html',
       controller: 'VisitedController',
-      controllerAs: 'visited'
+      controllerAs: 'visited',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
     })
     .when('/add', {
       templateUrl: 'views/templates/add.html',
       controller: 'AddController',
-      controllerAs: 'add'
+      controllerAs: 'add',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
     })
     .when('/submit', {
       templateUrl: 'views/templates/submit.html',
       controller: 'SubmitController',
-      controllerAs: 'submit'
+      controllerAs: 'submit',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
     })
     .when('/edit', {
       templateUrl: 'views/templates/edit.html',
       controller: 'EditController',
-      controllerAs: 'edit'
+      controllerAs: 'edit',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
     })
     .when('/landing', {
       templateUrl: 'views/templates/landing.html',
       controller: 'LandingController',
-      controllerAs: 'landing'
+      controllerAs: 'landing',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
     })
     .otherwise({
       redirectTo: 'home'

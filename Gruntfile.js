@@ -62,6 +62,14 @@ module.exports = function(grunt){
               'angular-aria.min.js.map'],
         dest: 'server/public/vendors/angular-aria/'
       },
+      angularExpansionPanel: {
+        expand: true,
+        cwd: 'node_modules/angular-material-expansion-panel/dist',
+        src: ['md-expansion-panel.js',
+              'md-expansion-panel.min.js',
+              'md-expansion-panel.min.css'],
+        dest: 'server/public/vendors/angular-material-expansion-panel/'
+      },
       angularAnimate: {
         expand: true,
         cwd: 'node_modules/angular-animate/',
