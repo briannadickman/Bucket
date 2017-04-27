@@ -5,6 +5,21 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
 
   $scope.userObject = UserService.userObject;
   $scope.logout = UserService.logout;
+
+  $scope.movePlace = function(_id){
+    console.log('movePlace clicked!', _id);
+    //Send to factory
+    
+    //Grab whole object
+
+    //Delete current card
+
+  };
+  $scope.expandPanel = function(){
+    console.log('expandPanel clicked!');
+    //Utilize Expansion Panel Stuff
+    //Add in Do This button too.
+  };
   // $scope.getPlaces = UserService.getPlaces;
 
   $scope.getPlaces = function(){

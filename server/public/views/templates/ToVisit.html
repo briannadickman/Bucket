@@ -4,18 +4,27 @@
   <md-button class='md-raised'><a href='#/add'>Add Happening</a></md-button>
 </div>
       <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList'>
+
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-fab md-mini">
+            X
+          <!-- <md-icon md-svg-icon="img/icons/menu.svg"></md-icon> -->
+          </md-button>
+        </md-card-actions>
+
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{place.name}}</span>
             <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+            <span>{{place._id}}</span>
           </md-card-title-text>
                       <!-- <md-card-title-media>
                         <div class="md-media-sm card-media"></div>
                       </md-card-title-media> -->
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Do This!</md-button>
-          <md-button>See More...</md-button>
+          <md-button ng-click='movePlace(place._id)'>Do This!</md-button>
+          <md-button ng-click='expandPanel()'>See More...</md-button>
         </md-card-actions>
       </md-card>
 
