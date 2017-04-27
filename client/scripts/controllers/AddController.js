@@ -2,11 +2,9 @@
 myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
   console.log('AddController sourced!');
 
-  var userObject = UserService.userObject;
-  console.log(userObject);
-
+  // CAPTURE FORM DATA
   $scope.location = {
-    user: userObject.userName,
+    user: '',
     name: '',
     dateAdded: new Date(),
     dateVisited: '',
@@ -25,9 +23,21 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
        return {abbrev: state};
      });
 
+  //  $scope.getPlaces = function(){
+  //      $http.get('/tovist/get').then(function(response){
+  //       //  $scope.locationList = response.data;
+  //        console.log($scope.locationList);
+  //      });
+  //    };
+
+  // ADD NEW PLACE FUNCTION
   $scope.addNewPlace = function(location) {
     console.log('Adding New Place: ', location);
-  };
+         $http.post('/locations/add', location).then(function(response){
+           console.log('Back From Router: ', response);
+         });
+     };
+
 }]);
 
 // SUBMIT FORM TO DATABASE (CREATE)
