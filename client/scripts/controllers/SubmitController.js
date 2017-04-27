@@ -1,6 +1,6 @@
 // SUBMIT PLACE AS VISITED: TRUE
-myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
-  console.log('AddController sourced!');
+myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
+  console.log('SubmitController sourced!');
 
   var userObject = UserService.userObject;
   console.log(userObject);
@@ -14,9 +14,14 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
     website: '',
     recommender: '',
     recNotes: '',
-    visited: false,
+    visited: true,
     type: '',
     userNotes: ''
+  };
+
+  // $scope.updatePlace = UserService.updatePlace;
+  $scope.updatePlace = function(){
+    console.log('Totes updating');
   };
 
   }]);

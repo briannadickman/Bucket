@@ -11,7 +11,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     getPlaces : function(){
       console.log('get that place girl!');
       $http.get('/locations').then(function(response){
-        console.log(response);
+        // console.log(response);
         locationList.data = response.data;
       });
     },
@@ -27,6 +27,18 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
               $location.path("/home");
           }
       });
+    },
+
+    updatePlace : function(_id){
+      console.log('Updating Place!', _id);
+      $http.put('/locations').then(function(response){
+          console.log(response);
+      });
+      //Send to factory
+     //
+     //   //Grab whole object
+     //
+     //   //Delete current card
     },
 
     logout : function() {

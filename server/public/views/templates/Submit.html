@@ -3,7 +3,7 @@
 <!-- SUBMIT PLACE FORM -->
 <md-content layout-padding>
   <div>
-    <form name='submitPlaceForm'>
+    <form>
 
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
@@ -74,9 +74,8 @@
       </div>
 
       <div layout="row" layout-align="end center">
-        <md-button class='md-raised' ng-click ='addNewPlace(location)'><a href='#/tovisit'>Add New Event</a></md-button>
+        <md-button class='md-raised' ng-click ='updatePlace(place._id)'>Finish Event!</md-button>
       </div>
-
     </form>
   </div>
 </md-content>

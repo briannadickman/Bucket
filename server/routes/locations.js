@@ -55,7 +55,7 @@ router.post('/', function(req,res){
 });
 
 router.put('/', function(req, res){
-
+  console.log(req.body);
 });
 
 router.delete('/', function(req, res){
