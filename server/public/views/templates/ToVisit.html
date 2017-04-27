@@ -3,7 +3,7 @@
 <div layout='row' layout-align='center end'>
   <md-button class='md-raised'><a href='#/add'>Add Happening</a></md-button>
 </div>
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList'>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data'>
 
         <md-card-actions layout="row" layout-align="end center">
           <md-button class="md-fab md-mini">

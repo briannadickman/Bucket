@@ -2,9 +2,19 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   console.log('User Service Loaded');
 
   var userObject = {};
+  var locationList = {};
 
   return {
     userObject : userObject,
+    locationList : locationList,
+
+    getPlaces : function(){
+      console.log('get that place girl!');
+      $http.get('/locations').then(function(response){
+        console.log(response);
+        locationList.data = response.data;
+      });
+    },
 
     getuser : function(){
       $http.get('/user').then(function(response) {
