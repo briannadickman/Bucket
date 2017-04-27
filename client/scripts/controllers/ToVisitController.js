@@ -5,7 +5,17 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
 
   $scope.userObject = UserService.userObject;
   $scope.logout = UserService.logout;
+  // $scope.getPlaces = UserService.getPlaces;
 
+  $scope.getPlaces = function(){
+    console.log('get that place girl!');
+    $http.get('/locations').then(function(response){
+      //console.log(response);
+      $scope.locationList = response.data;
+    });
+  };
+
+  $scope.getPlaces();
 }]);
 
 // ADD NEW PLACE

@@ -6,6 +6,14 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   return {
     userObject : userObject,
 
+    // getPlaces : function(){
+    //   console.log('get that place girl!');
+    //   $http.get('/locations').then(function(response){
+    //     //console.log(response);
+    //     $scope.locationList = response.data;
+    //   });
+    // },
+
     getuser : function(){
       $http.get('/user').then(function(response) {
           if(response.data.username) {

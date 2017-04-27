@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
 
+
 // Passport
 var passport = require('./strategies/userStrategy');
 var session = require('express-session');
@@ -12,6 +13,7 @@ var session = require('express-session');
 var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
+var locations = require('./routes/locations');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -34,6 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
+app.use('/locations', locations);
 app.use('/register', register);
 app.use('/user', user);
 app.use('/', index);
