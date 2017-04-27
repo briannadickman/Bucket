@@ -20,6 +20,15 @@ var LocationSchema = mongoose.Schema({
 
 var Location = mongoose.model('location', LocationSchema, 'locations');
 
+router.get('/', function(req, res){
+  Location.find({}, function(err, allLocations){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(allLocations);
+    });
+});
+
 router.post('/', function(req,res){
     var location = new Location({
         user: req.body.user,
@@ -43,6 +52,14 @@ router.post('/', function(req,res){
 
       res.send(savedLocation);
     });
+});
+
+router.put('/', function(req, res){
+
+});
+
+router.delete('/', function(req, res){
+
 });
 
 

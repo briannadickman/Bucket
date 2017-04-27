@@ -1,6 +1,25 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<button><a href='#/add'>Add Happening</a></button>
+<div layout='row' layout-align='center end'>
+  <md-button class='md-raised'><a href='#/add'>Add Happening</a></md-button>
+</div>
 <p>ToVisit Page</p>
-<div>To Visit Locations Go Here!</div>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList'>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{place.name}}</span>
+            <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+          </md-card-title-text>
+          <!-- <md-card-title-media>
+            <div class="md-media-sm card-media"></div>
+          </md-card-title-media> -->
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button>Do This!</md-button>
+          <md-button>See More...</md-button>
+        </md-card-actions>
+      </md-card>
+
+<!-- <div ng-repeat='place in locationList'>{{place}}</div> -->
+
 </div>
