@@ -34,11 +34,12 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
     deletePlace : function(place){
       getThisPlace(place);
-      console.log('Deleting place: ', placeObject);
+      console.log('Deleting place: ', place);
+      // console.log('Deleting place: ', placeObject);
 
-      // $http.delete('/locations', placeObject).then(function(response){
-      //     console.log('This is the response: ', response);
-      // });
+      $http.delete('/locations', place).then(function(response){
+          console.log('This is the response: ', response);
+      });
     },
 
     // getThisPlace : function(place){
