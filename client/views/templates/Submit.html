@@ -7,7 +7,7 @@
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Name of Place (Search)</label>
-          <input ng-model='location.name'>
+          <input ng-model='location.name' disabled>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
@@ -69,6 +69,18 @@
         <md-input-container class='md-block' flex-gt-xs>
           <label>Notes</label>
           <input ng-model='location.recNotes'>
+        </md-input-container>
+      </div>
+
+      <div layout-gt-xs='row'>
+        <md-input-container class='md-block' flex-gt-xs>
+          <label>Personal Notes</label>
+          <input ng-model='location.userNotes'>
+        </md-input-container>
+
+        <md-input-container class='md-block' flex-gt-xs>
+          <label>Date Visited</label>
+          <md-datepicker ng-model='location.dateVisited'></md-datepicker>
         </md-input-container>
       </div>
 

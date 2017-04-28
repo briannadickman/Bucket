@@ -1,6 +1,6 @@
 // TO VISIT CONTROLLER VIEW
 
-myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
+myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService, $mdDialog) {
   console.log('ToVisitController sourced!');
 
   $scope.userObject = UserService.userObject;
@@ -22,6 +22,22 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
     //Add in Do This button too.
   };
 
+  // MENU OPEN
+  var originatorEv;
+  $scope.openMenu = function($mdMenu, ev) {
+      originatorEv = ev;
+      $mdMenu.open(ev);
+    };
+
+  // MENU OPTION EDIT
+  $scope.editPlace = function(){
+    console.log('Edit Place clicked!');
+  };
+
+  // MENU OPTION DELETE
+  $scope.deletePlace = function(){
+    console.log('Delete Place clicked!');
+  };
 
 
 
@@ -30,7 +46,7 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
 
   // LOAD CARDS ON PAGE LOAD
   console.log(UserService.locationList);
-  
+
   $scope.getPlaces();
 
 }]);

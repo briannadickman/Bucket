@@ -8,13 +8,30 @@
     </md-button>
 <div class="list_container">
 
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"}'>
+      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
 
         <md-card-actions layout="row" layout-align="end end">
-          <md-button class="md-icon-button" aria-label="More">
-            <i class="material-icons">more_vert</i>
-          </md-button>
-        </md-card-actions>
+          <md-menu>
+              <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
+                <i class="material-icons">more_vert</i>
+              </md-button>
+              <md-menu-content width="3">
+                <md-menu-item>
+                  <md-button ng-click="editPlace()">
+                    <b>EDIT</b>
+                  </md-button>
+                </md-menu-item>
+
+                <md-menu-divider></md-menu-divider>
+
+                <md-menu-item>
+                  <md-button ng-click="deletePlace()">
+                    <b>DELETE</b>
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
+          </md-card-actions>
 
         <md-card-title>
           <md-card-title-text>

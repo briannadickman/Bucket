@@ -6,10 +6,24 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   var placeObject = {
     place: ''
   };
+  var locationObject = {
+    user: '',
+    name: '',
+    dateAdded: '',
+    dateVisited: '',
+    address: '',
+    website: '',
+    recommender: '',
+    recNotes: '',
+    visited: '',
+    type: '',
+    userNotes: ''
+  };
 
   return {
     userObject : userObject,
     locationList : locationList,
+    locationObject : locationObject,
 
     getThisPlace : function(place){
       console.log('Got object in factory: ', place);
@@ -39,18 +53,11 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     },
 
     visitPlace : function(){
-      // console.log('Updating Place!', placeID.id);
-      // placeObject.place.visited = true;
       console.log('Updating Place!', placeObject);
-
-      //Send object to factory
-
+    //Send object to factory
       $http.put('/locations', placeObject).then(function(response){
           console.log('This is the response: ', response);
       });
-
-     //
-     //   //Delete current card
     },
 
     logout : function() {
