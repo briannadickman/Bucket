@@ -19,9 +19,12 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
     userNotes: ''
   };
 
+  // $scope.placeID = UserService.placeID;
   // $scope.updatePlace = UserService.updatePlace;
   $scope.updatePlace = function(){
-    console.log('Totes updating');
+    placeID = UserService.placeID;
+    // var placeID = UserService.placeID;
+    console.log('Totes updating id: ', placeID.id);
   };
 
   }]);

@@ -3,10 +3,20 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
   var userObject = {};
   var locationList = {};
+  var placeID = {
+    id : ''
+  };
 
   return {
     userObject : userObject,
     locationList : locationList,
+    placeID : placeID,
+
+    getID : function(_id){
+      console.log('Got _id in factory: ', _id);
+      placeID.id = _id;
+      console.log('placeID is: ', placeID.id);
+    },
 
     getPlaces : function(){
       console.log('get that place girl!');
