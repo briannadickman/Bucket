@@ -5,27 +5,27 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   var userObject = UserService.userObject;
   console.log(userObject);
 
-  $scope.location = {
-    user: userObject.userName,
-    name: '',
-    dateAdded: new Date(),
-    dateVisited: '',
-    address: '',
-    website: '',
-    recommender: '',
-    recNotes: '',
-    visited: true,
-    type: '',
-    userNotes: ''
-  };
+  // $scope.location = {
+  //   user: userObject.userName,
+  //   name: '',
+  //   dateAdded: new Date(),
+  //   dateVisited: '',
+  //   address: '',
+  //   website: '',
+  //   recommender: '',
+  //   recNotes: '',
+  //   visited: true,
+  //   type: '',
+  //   userNotes: ''
+  // };
 
   // $scope.placeID = UserService.placeID;
-  // $scope.updatePlace = UserService.updatePlace;
-  $scope.updatePlace = function(){
-    placeID = UserService.placeID;
-    // var placeID = UserService.placeID;
-    console.log('Totes updating id: ', placeID.id);
-  };
+  $scope.visitPlace = UserService.visitPlace;
+  // $scope.updatePlace = function(){
+  //   placeID = UserService.placeID;
+  //   // var placeID = UserService.placeID;
+  //   console.log('Totes updating id: ', placeID.id);
+  // };
 
   }]);
 

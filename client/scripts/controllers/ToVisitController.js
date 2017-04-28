@@ -7,7 +7,8 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   $scope.logout = UserService.logout;
   $scope.getPlaces = UserService.getPlaces;
   $scope.locationList = UserService.locationList;
-  $scope.getID = UserService.getID;
+  // $scope.getID = UserService.getID;
+  $scope.getThisPlace = UserService.getThisPlace;
 
   // $scope.updatePlace = UserService.updatePlace;
   // $scope.updatePlace = function(_id){

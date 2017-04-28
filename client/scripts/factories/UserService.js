@@ -3,19 +3,18 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
   var userObject = {};
   var locationList = {};
-  var placeID = {
-    id : ''
+  var placeObject = {
+    place: ''
   };
 
   return {
     userObject : userObject,
     locationList : locationList,
-    placeID : placeID,
 
-    getID : function(_id){
-      console.log('Got _id in factory: ', _id);
-      placeID.id = _id;
-      console.log('placeID is: ', placeID.id);
+    getThisPlace : function(place){
+      console.log('Got object in factory: ', place);
+      placeObject.place = place;
+      console.log('placeObject is: ', placeObject.place);
     },
 
     getPlaces : function(){
@@ -39,14 +38,17 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
       });
     },
 
-    updatePlace : function(_id){
-      console.log('Updating Place!', _id);
-      $http.put('/locations').then(function(response){
-          console.log(response);
-      });
-      //Send to factory
-     //
-     //   //Grab whole object
+    visitPlace : function(){
+      // console.log('Updating Place!', placeID.id);
+      placeObject.place.visited = true;
+      console.log('Updating Place!', placeObject);
+
+      //Send object to factory
+
+      // $http.put('/locations', placeID).then(function(response){
+      //     console.log('This is the response: ', response);
+      // });
+
      //
      //   //Delete current card
     },
