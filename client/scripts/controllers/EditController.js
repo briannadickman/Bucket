@@ -1,5 +1,8 @@
 // EDIT CONTROLLER
+myApp.controller('EditController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService, $mdDialog) {
+  console.log('EditController sourced!');
 
+  }]);
 
 // NG-CLICK BUTTON (TO VISIT AND VISITED VIEWS) WILL BRING UP EDIT VIEW
 

@@ -46,3 +46,25 @@
 
 md-nav-bar {
   background-color: #ffffff; }
+
+.md-button.md-fab.md-fab-bottom-right {
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    /*position: absolute;*/
+    position: fixed !important;
+}
+
+#addButton {
+    display: block;
+    margin: auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    min-height: 24px;
+    min-width: 24px;
+}

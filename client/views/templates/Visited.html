@@ -1,13 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div layout='row' layout-align='center end'>
-  <md-button class='md-raised' href='#/add'>Add Happening</md-button>
-</div>
-<md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right"  aria-label="Add Location" >
-              +
-    </md-button>
-<div class="list_container">
-
       <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"true"} | orderBy:"id":true'>
 
         <md-card-actions layout="row" layout-align="end end">

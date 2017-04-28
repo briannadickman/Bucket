@@ -1,11 +1,13 @@
 <div ng-include="'views/partials/nav.html'"></div>
-
+<!--
 <div layout='row' layout-align='center end'>
   <md-button class='md-raised' href='#/add'>Add Happening</md-button>
-</div>
-<md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right"  aria-label="Add Location" >
-              +
-    </md-button>
+</div> -->
+
+  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right"  aria-label="Add Location" href='#/add'>
+    <i class="material-icons" id='addButton'>add</i>
+  </md-button>
+
 <div class="list_container">
 
       <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
@@ -17,7 +19,7 @@
               </md-button>
               <md-menu-content width="3">
                 <md-menu-item>
-                  <md-button ng-click="editPlace()">
+                  <md-button ng-click="editPlace()" href='#/edit'>
                     <b>EDIT</b>
                   </md-button>
                 </md-menu-item>
@@ -45,45 +47,10 @@
                       </md-card-title-media> -->
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <!-- <md-button ng-click='getID(place._id)' href='#/submit'>Do This!</md-button> -->
           <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
           <md-button ng-click='expandPanel()'>See More...</md-button>
         </md-card-actions>
       </md-card>
 </div>
-
-<!-- COLLAPSIBLE CARDS -->
-  <!-- <md-expansion-panel md-component-id="panelOne">
-
-  <md-expansion-panel-collapsed>
-    <div class="md-title">Title</div>
-    <div class="md-summary">Summary</div>
-    <md-expansion-panel-icon></md-expansion-panel-icon>
-  </md-expansion-panel-collapsed>
-
-
-  <md-expansion-panel-expanded>
-
-    <md-expansion-panel-header>
-      <div class="md-title">Expanded Title</div>
-      <div class="md-summary">Expanded Summary</div>
-      <md-expansion-panel-icon></md-expansion-panel-icon>
-    </md-expansion-panel-header>
-
-    <md-expansion-panel-content>
-      <h4>Content</h4>
-      <p>Put content in here</p>
-    </md-expansion-panel-content>
-
-    <md-expansion-panel-footer>
-      <div flex></div>
-      <md-button class="md-warn" ng-click="$panel.collapse()">Collapse</md-button>
-    </md-expansion-panel-footer>
-
-  </md-expansion-panel-expanded>
-
-</md-expansion-panel> -->
-
-<!-- <div ng-repeat='place in locationList'>{{place}}</div> -->
 
 </div>
