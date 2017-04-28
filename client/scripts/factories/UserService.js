@@ -40,14 +40,14 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
     visitPlace : function(){
       // console.log('Updating Place!', placeID.id);
-      placeObject.place.visited = true;
+      // placeObject.place.visited = true;
       console.log('Updating Place!', placeObject);
 
       //Send object to factory
 
-      // $http.put('/locations', placeID).then(function(response){
-      //     console.log('This is the response: ', response);
-      // });
+      $http.put('/locations', placeObject).then(function(response){
+          console.log('This is the response: ', response);
+      });
 
      //
      //   //Delete current card

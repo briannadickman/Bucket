@@ -55,13 +55,14 @@ router.post('/', function(req,res){
 
 router.put('/', function(req, res){
   console.log('Router.put has: ', req.body);
-  // var fixLocation = req.body;
+  console.log("Router.put id: ", req.body.place._id);
+  var id = req.body.place._id;
 
-  Location.find({req.body.id}, function(err, thisLocation){
+  Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true}}, {new: true}, function(err, updatedLocation){
       if(err) {
         console.log('Error finding messages', err);
       }
-      res.send(thisLocation);
+      res.send(updatedLocation);
     });
 });
 

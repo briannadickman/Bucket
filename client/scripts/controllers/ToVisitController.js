@@ -29,6 +29,8 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
 
 
   // LOAD CARDS ON PAGE LOAD
+  console.log(UserService.locationList);
+  
   $scope.getPlaces();
 
 }]);

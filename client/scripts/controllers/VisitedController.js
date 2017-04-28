@@ -5,6 +5,17 @@ myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserServ
   $scope.userObject = UserService.userObject;
   $scope.logout = UserService.logout;
 
+  $scope.getPlaces = UserService.getPlaces;
+  $scope.locationList = UserService.locationList;
+  $scope.getThisPlace = UserService.getThisPlace;
+
+  $scope.expandPanel = function(){
+    console.log('expandPanel clicked!');
+    //Utilize Expansion Panel Stuff
+    //Add in Do This button too.
+  };
+
+  $scope.getPlaces();
 }]);
 
 // SORT PLACES BY DATE VISITED
