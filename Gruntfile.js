@@ -77,6 +77,14 @@ module.exports = function(grunt){
               'angular-animate.min.js',
               'angular-animate.min.js.map'],
         dest: 'server/public/vendors/angular-animate/'
+      },
+      angularIcons: {
+        expand: true,
+        cwd: 'node_modules/angular-material-icons/',
+        src: ['angular-material-icons.js',
+              'angular-material-icons.min.js',
+              'angular-material-icons.css'],
+        dest: 'server/public/vendors/angular-material-icons/'
       }
     },
     watch: {

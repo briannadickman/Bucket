@@ -1,11 +1,42 @@
 // VISITED CONTROLLER VIEW
-myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
+myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService, $mdDialog) {
   console.log('VisitedController sourced!');
 
   $scope.userObject = UserService.userObject;
   $scope.logout = UserService.logout;
 
+  $scope.getPlaces = UserService.getPlaces;
+  $scope.locationList = UserService.locationList;
+  $scope.getThisPlace = UserService.getThisPlace;
+
+  $scope.expandPanel = function(){
+    console.log('expandPanel clicked!');
+    //Utilize Expansion Panel Stuff
+    //Add in Do This button too.
+  };
+
+
+  // MENU OPEN
+  var originatorEv;
+  $scope.openMenu = function($mdMenu, ev) {
+      originatorEv = ev;
+      $mdMenu.open(ev);
+    };
+
+  // MENU OPTION EDIT
+  $scope.editPlace = function(){
+    console.log('Edit Place clicked!');
+  };
+
+  // MENU OPTION DELETE
+  $scope.deletePlace = function(){
+    console.log('Delete Place clicked!');
+  };
+  
+
+  $scope.getPlaces();
 }]);
+
 
 // SORT PLACES BY DATE VISITED
 

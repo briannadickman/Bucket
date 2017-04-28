@@ -49,13 +49,21 @@ router.post('/', function(req,res){
         console.log("Mongo Error: ", err);
         res.sendStatus(500);
       }
-
       res.send(savedLocation);
     });
 });
 
 router.put('/', function(req, res){
+  console.log('Router.put has: ', req.body);
+  console.log("Router.put id: ", req.body.place._id);
+  var id = req.body.place._id;
 
+  Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true}}, {new: true}, function(err, updatedLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(updatedLocation);
+    });
 });
 
 router.delete('/', function(req, res){

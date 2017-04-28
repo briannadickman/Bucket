@@ -2,9 +2,42 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   console.log('User Service Loaded');
 
   var userObject = {};
+  var locationList = {};
+  var placeObject = {
+    place: ''
+  };
+  var locationObject = {
+    user: '',
+    name: '',
+    dateAdded: '',
+    dateVisited: '',
+    address: '',
+    website: '',
+    recommender: '',
+    recNotes: '',
+    visited: '',
+    type: '',
+    userNotes: ''
+  };
 
   return {
     userObject : userObject,
+    locationList : locationList,
+    locationObject : locationObject,
+
+    getThisPlace : function(place){
+      console.log('Got object in factory: ', place);
+      placeObject.place = place;
+      console.log('placeObject is: ', placeObject.place);
+    },
+
+    getPlaces : function(){
+      console.log('get that place girl!');
+      $http.get('/locations').then(function(response){
+        // console.log(response);
+        locationList.data = response.data;
+      });
+    },
 
     getuser : function(){
       $http.get('/user').then(function(response) {
@@ -16,6 +49,14 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
               // user has no session, bounce them back to the login page
               $location.path("/home");
           }
+      });
+    },
+
+    visitPlace : function(){
+      console.log('Updating Place!', placeObject);
+    //Send object to factory
+      $http.put('/locations', placeObject).then(function(response){
+          console.log('This is the response: ', response);
       });
     },
 
