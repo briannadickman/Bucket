@@ -35,12 +35,10 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   };
 
   // MENU OPTION DELETE
-  $scope.deletePlace = function(){
-    console.log('Delete Place clicked!');
-  };
-
-
-
+  $scope.deletePlace = UserService.deletePlace;
+  // $scope.deletePlace = function(){
+  //   console.log('Deleting: ');
+  // };
   // EXPANSION PANELS
 
 

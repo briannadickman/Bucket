@@ -20,16 +20,32 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     userNotes: ''
   };
 
+  function getThisPlace(place){
+    console.log('Got object in factory: ', place);
+    placeObject.place = place;
+    console.log('placeObject is: ', placeObject.place);
+  }
+
   return {
     userObject : userObject,
     locationList : locationList,
     locationObject : locationObject,
+    getThisPlace : getThisPlace,
 
-    getThisPlace : function(place){
-      console.log('Got object in factory: ', place);
-      placeObject.place = place;
-      console.log('placeObject is: ', placeObject.place);
+    deletePlace : function(place){
+      getThisPlace(place);
+      console.log('Deleting place: ', placeObject);
+
+      // $http.delete('/locations', placeObject).then(function(response){
+      //     console.log('This is the response: ', response);
+      // });
     },
+
+    // getThisPlace : function(place){
+    //   console.log('Got object in factory: ', place);
+    //   placeObject.place = place;
+    //   console.log('placeObject is: ', placeObject.place);
+    // },
 
     getPlaces : function(){
       console.log('get that place girl!');

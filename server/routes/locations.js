@@ -67,7 +67,15 @@ router.put('/', function(req, res){
 });
 
 router.delete('/', function(req, res){
+  console.log('Router.delete has: ', req.body);
+  var id = req.body.place._id;
 
+  Location.deleteOne({'_id' : id}, function(err, updatedLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(updatedLocation);
+    });
 });
 
 
