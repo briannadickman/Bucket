@@ -21,9 +21,39 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   };
 
   function getThisPlace(place){
-    console.log('Got object in factory: ', place);
+    console.log("getting this place: ", place);
     placeObject.place = place;
-    console.log('placeObject is: ', placeObject.place);
+    console.log('placeObject is: ', placeObject.place._id);
+
+    $http.get('/locations/this').then(function(response){
+      console.log('ThisLocation: ', response);
+    });
+
+    // Model.findById(id, [projection], [options], [callback])
+
+    // locationObject = {
+    //   user: place.userName,
+    //   name: place.name,
+    //   dateAdded: place.dateAdded,
+    //   dateVisited: place.dateVisited,
+    //   address: place.address,
+    //   website: place.website,
+    //   recommender: place.recommender,
+    //   recNotes: place.recNotes,
+    //   visited: place.visited,
+    //   type: place.type,
+    //   userNotes: place.userNotes
+    // };
+    //
+    // console.log("location object is: ", locationObject);
+  }
+
+  function getPlaces(){
+    console.log('get that place girl!');
+    $http.get('/locations').then(function(response){
+      // console.log(response);
+      locationList.data = response.data;
+    });
   }
 
   return {
@@ -31,15 +61,16 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     locationList : locationList,
     locationObject : locationObject,
     getThisPlace : getThisPlace,
+    getPlaces : getPlaces,
 
     deletePlace : function(place){
       getThisPlace(place);
       console.log('Deleting place: ', place);
-      // console.log('Deleting place: ', placeObject);
 
-      $http.delete('/locations', place).then(function(response){
-          console.log('This is the response: ', response);
+      $http.delete('/locations/' + place._id).then(function(response){
+          console.log('Deleted place is: ', response);
       });
+      getPlaces();
     },
 
     // getThisPlace : function(place){
@@ -48,13 +79,13 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     //   console.log('placeObject is: ', placeObject.place);
     // },
 
-    getPlaces : function(){
-      console.log('get that place girl!');
-      $http.get('/locations').then(function(response){
-        // console.log(response);
-        locationList.data = response.data;
-      });
-    },
+    // getPlaces : function(){
+    //   console.log('get that place girl!');
+    //   $http.get('/locations').then(function(response){
+    //     // console.log(response);
+    //     locationList.data = response.data;
+    //   });
+    // },
 
     getuser : function(){
       $http.get('/user').then(function(response) {

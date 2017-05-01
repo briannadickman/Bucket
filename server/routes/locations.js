@@ -29,6 +29,17 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/this', function(req, res){
+  console.log("req.body is: ", req.body);
+
+  Location.findById(req.body._id, function(err, thisLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(thisLocation);
+    });
+});
+
 router.post('/', function(req,res){
     var location = new Location({
         user: req.body.user,
@@ -67,16 +78,16 @@ router.put('/', function(req, res){
 });
 
 
-router.delete('/', function(req, res){
-  console.log('Router.delete has: ', req.body);
-  // var id = req.body.place._id;
+router.delete('/:id', function(req, res){
+  console.log('Router.delete has: ', req.params);
+  var id = req.params.id;
 
-  // Location.deleteOne({'_id' : id}, function(err, updatedLocation){
-  //     if(err) {
-  //       console.log('Error finding messages', err);
-  //     }
-  //     res.send(updatedLocation);
-  //   });
+  Location.deleteOne({'_id' : id}, function(err, deletedLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(deletedLocation);
+    });
 });
 
 

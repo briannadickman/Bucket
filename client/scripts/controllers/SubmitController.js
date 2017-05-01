@@ -3,26 +3,26 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   console.log('SubmitController sourced!');
 
   var userObject = UserService.userObject;
-  console.log(userObject);
-
   $scope.location = UserService.locationObject;
+  $scope.placeObject = UserService.placeObject;
 
-  $scope.location = {
-    user: userObject.userName,
-    name: 'Test Name',
-    dateAdded: UserService.locationObject.dateAdded,
-    dateVisited: new Date(),
-    address: UserService.locationObject.address,
-    website: UserService.locationObject.website,
-    recommender: UserService.locationObject.recommender,
-    recNotes: UserService.locationObject.recNotes,
-    visited: UserService.locationObject.visited,
-    type: UserService.locationObject.type,
-    userNotes: ''
-  };
+  // $scope.location = {
+  //   user: userObject.userName,
+  //   name: UserService.locationObject.name,
+  //   dateAdded: UserService.locationObject.dateAdded,
+  //   dateVisited: new Date(),
+  //   address: UserService.locationObject.address,
+  //   website: UserService.locationObject.website,
+  //   recommender: UserService.locationObject.recommender,
+  //   recNotes: UserService.locationObject.recNotes,
+  //   visited: UserService.locationObject.visited,
+  //   type: UserService.locationObject.type,
+  //   userNotes: ''
+  // };
 
   $scope.visitPlace = UserService.visitPlace;
 
+  // $scope.getThisLocation();
   }]);
 
 // CORRECT CONTENT TO EDIT

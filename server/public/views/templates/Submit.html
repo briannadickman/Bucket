@@ -7,12 +7,12 @@
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Name of Place (Search)</label>
-          <input ng-model='location.name' disabled>
+          <input ng-model='location.name' placeholder="{{location.name}}" disabled>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>Date Added</label>
-          <md-datepicker ng-model='location.dateAdded'></md-datepicker>
+          <md-datepicker ng-model='location.dateAdded' placeholder='{{location.dateAdded}}'></md-datepicker>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
