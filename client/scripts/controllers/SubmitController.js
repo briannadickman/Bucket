@@ -5,6 +5,7 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   var userObject = UserService.userObject;
   $scope.location = UserService.locationObject;
   $scope.placeObject = UserService.placeObject;
+  $scope.editPlace = UserService.editPlace;
 
   // $scope.location = {
   //   user: userObject.userName,
@@ -23,6 +24,9 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   $scope.visitPlace = UserService.visitPlace;
 
   // $scope.getThisLocation();
+
+  $scope.editPlace();
+
   }]);
 
 // CORRECT CONTENT TO EDIT

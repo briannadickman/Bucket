@@ -1,5 +1,6 @@
 
 <!-- SUBMIT PLACE FORM -->
+
 <md-content layout-padding>
   <div>
     <form>
@@ -7,17 +8,17 @@
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Name of Place (Search)</label>
-          <input ng-model='location.name' placeholder="{{location.name}}" disabled>
+          <input ng-model='location.name' placeholder ="{{placeObject.place.name}}" disabled>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>Date Added</label>
-          <md-datepicker ng-model='location.dateAdded' placeholder='{{location.dateAdded}}'></md-datepicker>
+          <input ng-model='location.dateAdded' placeholder='{{placeObject.place.dateAdded | date:"MM/dd/yyyy"}}' disabled>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>Type</label>
-          <md-select ng-model='location.type'>
+          <md-select ng-model='location.type' placeholder ='{{placeObject.place.type}}' disabled>
             <md-option ng-repeat='type in types' value='{{type.type}}'>
               {{type.type}}
             </md-option>
@@ -28,19 +29,19 @@
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Address</label>
-          <input ng-model='location.address'>
+          <input ng-model='location.address' placeholder ='{{placeObject.place.address}}' disabled>
         </md-input-container>
       </div>
 
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>City</label>
-          <input ng-model='location.city'>
+          <input ng-model='location.city' placeholder ='{{placeObject.place.city}}' disabled>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>State</label>
-          <md-select ng-model='location.state'>
+          <md-select ng-model='location.state' placeholder ='{{placeObject.place.state}}' disabled>
             <md-option ng-repeat='state in states' value='{{state.abbrev}}'>
               {{state.abbrev}}
             </md-option>
@@ -49,38 +50,38 @@
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>Zip Code</label>
-          <input ng-model='location.zipcode'>
+          <input ng-model='location.zipcode' placeholder ='{{placeObject.place.zipcode}}' disabled>
         </md-input-container>
       </div>
 
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Website</label>
-          <input ng-model='location.website'>
+          <input ng-model='location.website' placeholder ='{{placeObject.place.website}}' disabled>
         </md-input-container>
       </div>
 
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Recommender</label>
-          <input ng-model='location.recommender'>
+          <input ng-model='location.recommender' placeholder ='{{placeObject.place.recommender}}' disabled>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>Notes</label>
-          <input ng-model='location.recNotes'>
+          <input ng-model='location.recNotes' placeholder ='{{placeObject.place.recNotes}}' disabled>
         </md-input-container>
       </div>
 
       <div layout-gt-xs='row'>
         <md-input-container class='md-block' flex-gt-xs>
           <label>Personal Notes</label>
-          <input ng-model='location.userNotes'>
+          <input ng-model='location.userNotes' placeholder ='{{placeObject.place.userNotes}}'>
         </md-input-container>
 
         <md-input-container class='md-block' flex-gt-xs>
           <label>Date Visited</label>
-          <md-datepicker ng-model='location.dateVisited'></md-datepicker>
+          <md-datepicker ng-model='location.dateVisited' placeholder ='{{placeObject.place.dateVisited}}' ></md-datepicker>
         </md-input-container>
       </div>
 

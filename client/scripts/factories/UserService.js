@@ -12,6 +12,9 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     dateAdded: '',
     dateVisited: '',
     address: '',
+    city: '',
+    state: '',
+    zipcode: '',
     website: '',
     recommender: '',
     recNotes: '',
@@ -19,34 +22,6 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     type: '',
     userNotes: ''
   };
-
-  function getThisPlace(place){
-    console.log("getting this place: ", place);
-    placeObject.place = place;
-    console.log('placeObject is: ', placeObject.place._id);
-
-    $http.get('/locations/this').then(function(response){
-      console.log('ThisLocation: ', response);
-    });
-
-    // Model.findById(id, [projection], [options], [callback])
-
-    // locationObject = {
-    //   user: place.userName,
-    //   name: place.name,
-    //   dateAdded: place.dateAdded,
-    //   dateVisited: place.dateVisited,
-    //   address: place.address,
-    //   website: place.website,
-    //   recommender: place.recommender,
-    //   recNotes: place.recNotes,
-    //   visited: place.visited,
-    //   type: place.type,
-    //   userNotes: place.userNotes
-    // };
-    //
-    // console.log("location object is: ", locationObject);
-  }
 
   function getPlaces(){
     console.log('get that place girl!');
@@ -56,12 +31,29 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     });
   }
 
+  function getThisPlace(place){
+    console.log("getting this place: ", place);
+    placeObject.place = place;
+    console.log('placeObject is: ', placeObject.place._id);
+  }
+
+  function editPlace(){
+    // getThisPlace(place);
+    console.log('editing place: ', placeObject.place);
+
+
+  }
+
+
   return {
     userObject : userObject,
     locationList : locationList,
     locationObject : locationObject,
+    placeObject : placeObject,
+
     getThisPlace : getThisPlace,
     getPlaces : getPlaces,
+    editPlace : editPlace,
 
     deletePlace : function(place){
       getThisPlace(place);
