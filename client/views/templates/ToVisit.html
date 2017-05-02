@@ -1,8 +1,4 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<!--
-<div layout='row' layout-align='center end'>
-  <md-button class='md-raised' href='#/add'>Add Happening</md-button>
-</div> -->
 
   <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right"  aria-label="Add Location" href='#/add'>
     <i class="material-icons" id='addButton'>add</i>
@@ -12,40 +8,43 @@
 
       <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
 
-        <md-card-actions layout="row" layout-align="end end">
-          <md-menu>
-              <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
-                <i class="material-icons">more_vert</i>
-              </md-button>
-              <md-menu-content width="3">
-                <md-menu-item>
-                  <md-button ng-click="getThisPlace(place)" href='#/edit'>
-                    <b>EDIT</b>
-                  </md-button>
-                </md-menu-item>
-
-                <md-menu-divider></md-menu-divider>
-
-                <md-menu-item>
-                  <md-button ng-click="deletePlace(place)">
-                    <b>DELETE</b>
-                  </md-button>
-                </md-menu-item>
-              </md-menu-content>
-            </md-menu>
-          </md-card-actions>
+        <md-card-actions layout="row">
 
         <md-card-title>
+          <!-- IMAGE -->
+          <md-card-title-media>
+              <div class="md-media-sm card-media"></div>
+          </md-card-title-media>
+
           <md-card-title-text>
             <span class="md-headline">{{place.name}}</span>
+            <span class="md-subhead">{{place.type}}</span>
             <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
-            <span>{{place._id}}</span>
-            <span>{{place.visited}}</span>
           </md-card-title-text>
-                      <!-- <md-card-title-media>
-                        <div class="md-media-sm card-media"></div>
-                      </md-card-title-media> -->
+
         </md-card-title>
+
+        <md-menu id="cardMenu" layout-align="end end">
+            <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
+              <i class="material-icons">more_vert</i>
+            </md-button>
+            <md-menu-content width="3">
+              <md-menu-item>
+                <md-button ng-click="getThisPlace(place)" href='#/edit'>
+                  <b>EDIT</b>
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-button ng-click="deletePlace(place)">
+                  <b>DELETE</b>
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+
+        </md-card-actions>
+
         <md-card-actions layout="row" layout-align="end center">
           <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
           <md-button ng-click='expandPanel()'>See More...</md-button>

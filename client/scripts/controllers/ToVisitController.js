@@ -7,15 +7,9 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   $scope.logout = UserService.logout;
   $scope.getPlaces = UserService.getPlaces;
   $scope.locationList = UserService.locationList;
-  // $scope.getID = UserService.getID;
   $scope.getThisPlace = UserService.getThisPlace;
 
-  // $scope.updatePlace = UserService.updatePlace;
-  // $scope.updatePlace = function(_id){
-  //   console.log('movePlace clicked!', _id);
-  //
-  //
-  // };
+
   $scope.expandPanel = function(){
     console.log('expandPanel clicked!');
     //Utilize Expansion Panel Stuff
@@ -36,14 +30,16 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
 
   // MENU OPTION DELETE
   $scope.deletePlace = UserService.deletePlace;
-  // $scope.deletePlace = function(){
-  //   console.log('Deleting: ');
-  // };
+
+  // TYPES OF ESTABLISHMENTS
+  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Travel').split(' ').map(function(type){
+      return {type: type};
+  });
+
   // EXPANSION PANELS
 
 
   // LOAD CARDS ON PAGE LOAD
-  console.log(UserService.locationList);
 
   $scope.getPlaces();
 

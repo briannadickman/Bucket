@@ -1,12 +1,31 @@
-<!-- <div class="instructions">
-    <div class="container">
-        <h1 class="lead">Bucket //</h1>
-    </div>
-</div> -->
+<!-- <md-toolbar class="md-accent">
+<div layout="row" class="md-toolbar-tools">
+  <md-button aria-label="Settings" layout-align='start center'>
+    <i class="material-icons">menu</i>
+  </md-button>
 
-<md-toolbar class="md-primary md-hue-2">
-<div layout="column" class="md-toolbar-tools" layout-align="center center">
-  <!-- <md-button class="md-icon-button" aria-label="Settings"></md-button> -->
-  <h1>Bucket //</h1>
-</div>
-</md-toolbar>
+    <h1>Bucket //</h1>
+
+  </div>
+</md-toolbar> -->
+
+<md-toolbar class="md-accent">
+      <div class="md-toolbar-tools">
+
+      <md-menu>
+        <md-button class="md-icon-button" aria-label="Logout" ng-click="header()">
+          <md-icon md-menu-origin><i class="material-icons">menu</i></md-icon>
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item>
+            <md-button ng-click="header()">
+              <b>Logout</b>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+
+        <h2 flex md-truncates>Bucket //</h2>
+
+      </div>
+    </md-toolbar>
