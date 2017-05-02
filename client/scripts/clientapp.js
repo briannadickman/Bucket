@@ -92,6 +92,16 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
+    .when('/header', {
+      templateUrl: 'views/templates/header.html',
+      controller: 'HeaderController',
+      controllerAs: 'header',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });

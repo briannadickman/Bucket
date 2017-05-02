@@ -68,3 +68,27 @@ md-nav-bar {
     min-height: 24px;
     min-width: 24px;
 }
+
+.card-media {
+  background-color: #999999;
+}
+
+#navBarContent {
+  background-color: transparent !important;
+}
+
+md-content md-nav-bar {
+  background: #f6f6f6;
+}
+
+md-content md-nav-bar md-tabs-wrapper {
+  background: white;
+}
+
+md-content h1:first-child {
+  margin-top: 0;
+}
+
+md-card .md-actions:not(.layout-column) .md-button.md-icon-button:last-of-type, md-card md-card-actions:not(.layout-column) .md-button.md-icon-button:last-of-type {
+     margin-right: 0px; 
+}

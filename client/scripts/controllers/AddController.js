@@ -20,6 +20,7 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
   // };
 
   $scope.location = UserService.locationObject;
+  $scope.location.dateAdded = new Date();
 
   // STATES
   $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
@@ -36,10 +37,12 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
 
   // SUBMIT FORM TO DATABASE (CREATE)
   $scope.addNewPlace = function(location) {
-    $scope.location.dateVisited = new Date();
+    // $scope.location.dateVisited = new Date();
+    // $scope.location = UserService.locationObject;
     $scope.location.visited = false;
     $scope.location.user = userObject.userName;
     console.log('Adding New Place: ', location);
+    console.log('Adding New PlaceObject: ', UserService.locationObject);
     $http.post('/locations', location).then(function(response){
       console.log(response.data);
     });

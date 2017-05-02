@@ -10,6 +10,9 @@ var LocationSchema = mongoose.Schema({
   dateAdded: Date,
   dateVisited: Date,
   address: String,
+  city: String,
+  state: String,
+  zipcode: Number,
   website: String,
   recommender: String,
   recNotes: String,
@@ -29,6 +32,17 @@ router.get('/', function(req, res){
     });
 });
 
+router.get('/this', function(req, res){
+  console.log("req.body is: ", req.body);
+
+  Location.findById(req.body._id, function(err, thisLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(thisLocation);
+    });
+});
+
 router.post('/', function(req,res){
     var location = new Location({
         user: req.body.user,
@@ -36,6 +50,9 @@ router.post('/', function(req,res){
         dateAdded: req.body.dateAdded,
         dateVisited: req.body.dateVisited,
         address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
         website: req.body.website,
         recommender: req.body.recommender,
         recNotes: req.body.recNotes,
@@ -53,12 +70,10 @@ router.post('/', function(req,res){
     });
 });
 
-router.put('/', function(req, res){
-  console.log('Router.put has: ', req.body);
-  console.log("Router.put id: ", req.body.place._id);
+router.put('/submit', function(req, res){
   var id = req.body.place._id;
 
-  Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true}}, {new: true}, function(err, updatedLocation){
+  Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true, 'userNotes' : req.body.place.userNotes}}, {new: true}, function(err, updatedLocation){
       if(err) {
         console.log('Error finding messages', err);
       }
@@ -67,16 +82,40 @@ router.put('/', function(req, res){
 });
 
 
-router.delete('/', function(req, res){
-  console.log('Router.delete has: ', req.body);
-  // var id = req.body.place._id;
+router.put('/update', function(req, res){
+  var id = req.body.place._id;
 
-  // Location.deleteOne({'_id' : id}, function(err, updatedLocation){
-  //     if(err) {
-  //       console.log('Error finding messages', err);
-  //     }
-  //     res.send(updatedLocation);
-  //   });
+  Location.findOneAndUpdate({'_id' : id},
+  {$set:{'name' : req.body.place.name,
+          'dateAdded' : req.body.place.dateAdded,
+          'address' : req.body.place.address,
+          'city' : req.body.place.city,
+          'state': req.body.place.state,
+          'zipcode': req.body.place.zipcode,
+          'website': req.body.place.website,
+          'recommender': req.body.place.recommender,
+          'recNotes': req.body.place.recNotes,
+          'visited': req.body.place.visited,
+          'type': req.body.place.type,
+          'userNotes': req.body.place.userNotes}},
+          {new: true}, function(err, updatedLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(updatedLocation);
+    });
+});
+
+
+router.delete('/:id', function(req, res){
+  var id = req.params.id;
+
+  Location.deleteOne({'_id' : id}, function(err, deletedLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(deletedLocation);
+    });
 });
 
 
