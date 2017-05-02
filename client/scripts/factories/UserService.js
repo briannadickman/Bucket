@@ -33,14 +33,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     console.log("getting this place: ", place);
     placeObject.place = place;
   }
-
-  function editPlace(){
-    // getThisPlace(place);
-    console.log('editing place: ', placeObject.place);
-
-
-  }
-
+  
 
   return {
     userObject : userObject,
@@ -50,7 +43,6 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
     getThisPlace : getThisPlace,
     getPlaces : getPlaces,
-    editPlace : editPlace,
 
     deletePlace : function(place){
       getThisPlace(place);
@@ -61,20 +53,6 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
       });
       getPlaces();
     },
-
-    // getThisPlace : function(place){
-    //   console.log('Got object in factory: ', place);
-    //   placeObject.place = place;
-    //   console.log('placeObject is: ', placeObject.place);
-    // },
-
-    // getPlaces : function(){
-    //   console.log('get that place girl!');
-    //   $http.get('/locations').then(function(response){
-    //     // console.log(response);
-    //     locationList.data = response.data;
-    //   });
-    // },
 
     getuser : function(){
       $http.get('/user').then(function(response) {
@@ -88,10 +66,18 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
       });
     },
 
+    submitAndUpdatePlace : function(location){
+      console.log('Updating Place!', placeObject);
+    //Send object to factory
+      $http.put('/locations/submit', placeObject).then(function(response){
+          console.log(response);
+      });
+    },
+
     updatePlace : function(location){
       console.log('Updating Place!', placeObject);
     //Send object to factory
-      $http.put('/locations', placeObject).then(function(response){
+      $http.put('/locations/update', placeObject).then(function(response){
           console.log(response);
       });
     },

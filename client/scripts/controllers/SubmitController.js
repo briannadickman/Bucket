@@ -6,13 +6,14 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   $scope.location = UserService.locationObject;
   $scope.placeObject = UserService.placeObject;
   $scope.updatePlace = UserService.updatePlace;
+  $scope.location.dateVisited = new Date();
 
   // $scope.submitPlace = UserService.submitPlace;
 
   $scope.submitPlace = function(placeObject, location){
     placeObject.place.userNotes = location.userNotes;
     console.log("REVISED place object is: ", placeObject);
-    UserService.updatePlace(placeObject);
+    UserService.submitAndUpdatePlace(placeObject);
   };
 
 

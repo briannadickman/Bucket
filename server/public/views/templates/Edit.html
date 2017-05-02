@@ -8,7 +8,7 @@
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Name of Place (Search)</label>
-                    <input ng-model='location.name' placeholder ="{{placeObject.place.name}}">
+                    <input ng-model='location.name'>
                 </md-input-container>
 
                 <md-input-container class='md-block' flex-gt-xs>
@@ -75,7 +75,7 @@
 
             <div layout="row" layout-align="end center">
                 <md-button class='md-raised' href='#/tovisit'>Cancel</md-button>
-                <md-button class='md-raised' ng-click='editPlace(location)' href='#/tovisit'>Save Changes</md-button>
+                <md-button class='md-raised' ng-click ='editPlace(placeObject, location)' href='#/tovisit'>Save Changes</md-button>
             </div>
 
         </form>

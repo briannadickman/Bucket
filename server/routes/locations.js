@@ -70,10 +70,35 @@ router.post('/', function(req,res){
     });
 });
 
-router.put('/', function(req, res){
+router.put('/submit', function(req, res){
   var id = req.body.place._id;
 
   Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true, 'userNotes' : req.body.place.userNotes}}, {new: true}, function(err, updatedLocation){
+      if(err) {
+        console.log('Error finding messages', err);
+      }
+      res.send(updatedLocation);
+    });
+});
+
+
+router.put('/update', function(req, res){
+  var id = req.body.place._id;
+
+  Location.findOneAndUpdate({'_id' : id},
+  {$set:{'name' : req.body.place.name,
+          'dateAdded' : req.body.place.dateAdded,
+          'address' : req.body.place.address,
+          'city' : req.body.place.city,
+          'state': req.body.place.state,
+          'zipcode': req.body.place.zipcode,
+          'website': req.body.place.website,
+          'recommender': req.body.place.recommender,
+          'recNotes': req.body.place.recNotes,
+          'visited': req.body.place.visited,
+          'type': req.body.place.type,
+          'userNotes': req.body.place.userNotes}},
+          {new: true}, function(err, updatedLocation){
       if(err) {
         console.log('Error finding messages', err);
       }
