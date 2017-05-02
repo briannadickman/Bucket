@@ -24,9 +24,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   };
 
   function getPlaces(){
-    console.log('get that place girl!');
     $http.get('/locations').then(function(response){
-      // console.log(response);
       locationList.data = response.data;
     });
   }
@@ -34,7 +32,6 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   function getThisPlace(place){
     console.log("getting this place: ", place);
     placeObject.place = place;
-    console.log('placeObject is: ', placeObject.place._id);
   }
 
   function editPlace(){
@@ -60,7 +57,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
       console.log('Deleting place: ', place);
 
       $http.delete('/locations/' + place._id).then(function(response){
-          console.log('Deleted place is: ', response);
+          console.log(response);
       });
       getPlaces();
     },
@@ -84,7 +81,6 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
           if(response.data.username) {
               // user has a curret session on the server
               userObject.userName = response.data.username;
-              console.log('User Data: ', userObject.userName);
           } else {
               // user has no session, bounce them back to the login page
               $location.path("/home");
@@ -92,11 +88,11 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
       });
     },
 
-    visitPlace : function(){
+    updatePlace : function(location){
       console.log('Updating Place!', placeObject);
     //Send object to factory
       $http.put('/locations', placeObject).then(function(response){
-          console.log('This is the response: ', response);
+          console.log(response);
       });
     },
 

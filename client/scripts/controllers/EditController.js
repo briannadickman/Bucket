@@ -2,6 +2,11 @@
 myApp.controller('EditController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService, $mdDialog) {
   console.log('EditController sourced!');
 
+  var userObject = UserService.userObject;
+  $scope.location = UserService.locationObject;
+  $scope.placeObject = UserService.placeObject;
+  $scope.editPlace = UserService.editPlace;
+
   }]);
 
 // NG-CLICK BUTTON (TO VISIT AND VISITED VIEWS) WILL BRING UP EDIT VIEW

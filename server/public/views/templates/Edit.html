@@ -1,4 +1,4 @@
-<div ng-include="'views/partials/nav.html'"></div>
+{{placeObject}}
 
 <md-content layout-padding>
     <div>
@@ -8,17 +8,17 @@
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Name of Place (Search)</label>
-                    <input ng-model='location.name'>
+                    <input ng-model='location.name' placeholder ="{{placeObject.place.name}}">
                 </md-input-container>
 
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Date Added</label>
-                    <md-datepicker ng-model='location.dateAdded'></md-datepicker>
+                    <md-datepicker ng-model='location.dateAdded' placeholder ="{{placeObject.place.dateAdded}}"></md-datepicker>
                 </md-input-container>
 
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Type</label>
-                    <md-select ng-model='location.type'>
+                    <md-select ng-model='location.type' placeholder ="{{placeObject.place.type}}">
                         <md-option ng-repeat='type in types' value='{{type.type}}'>
                             {{type.type}}
                         </md-option>
@@ -29,19 +29,19 @@
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Address</label>
-                    <input ng-model='location.address'>
+                    <input ng-model='location.address' placeholder ="{{placeObject.place.address}}">
                 </md-input-container>
             </div>
 
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>City</label>
-                    <input ng-model='location.city'>
+                    <input ng-model='location.city' placeholder ="{{placeObject.place.city}}">
                 </md-input-container>
 
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>State</label>
-                    <md-select ng-model='location.state'>
+                    <md-select ng-model='location.state' placeholder ="{{placeObject.place.state}}">
                         <md-option ng-repeat='state in states' value='{{state.abbrev}}'>
                             {{state.abbrev}}
                         </md-option>
@@ -50,32 +50,32 @@
 
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Zip Code</label>
-                    <input ng-model='location.zipcode'>
+                    <input ng-model='location.zipcode' placeholder ="{{placeObject.place.zipcode}}">
                 </md-input-container>
             </div>
 
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Website</label>
-                    <input ng-model='location.website'>
+                    <input ng-model='location.website' placeholder ="{{placeObject.place.website}}">
                 </md-input-container>
             </div>
 
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Recommender</label>
-                    <input ng-model='location.recommender'>
+                    <input ng-model='location.recommender' placeholder ="{{placeObject.place.recommender}}">
                 </md-input-container>
 
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Notes</label>
-                    <input ng-model='location.recNotes'>
+                    <input ng-model='location.recNotes' placeholder ="{{placeObject.place.recNotes}}">
                 </md-input-container>
             </div>
 
             <div layout="row" layout-align="end center">
                 <md-button class='md-raised' href='#/tovisit'>Cancel</md-button>
-                <md-button class='md-raised' ng-click='editPlace()' href='#/tovisit'>Save Changes</md-button>
+                <md-button class='md-raised' ng-click='editPlace(location)' href='#/tovisit'>Save Changes</md-button>
             </div>
 
         </form>

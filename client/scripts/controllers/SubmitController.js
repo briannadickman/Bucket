@@ -5,27 +5,16 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   var userObject = UserService.userObject;
   $scope.location = UserService.locationObject;
   $scope.placeObject = UserService.placeObject;
-  $scope.editPlace = UserService.editPlace;
+  $scope.updatePlace = UserService.updatePlace;
 
-  // $scope.location = {
-  //   user: userObject.userName,
-  //   name: UserService.locationObject.name,
-  //   dateAdded: UserService.locationObject.dateAdded,
-  //   dateVisited: new Date(),
-  //   address: UserService.locationObject.address,
-  //   website: UserService.locationObject.website,
-  //   recommender: UserService.locationObject.recommender,
-  //   recNotes: UserService.locationObject.recNotes,
-  //   visited: UserService.locationObject.visited,
-  //   type: UserService.locationObject.type,
-  //   userNotes: ''
-  // };
+  // $scope.submitPlace = UserService.submitPlace;
 
-  $scope.visitPlace = UserService.visitPlace;
+  $scope.submitPlace = function(placeObject, location){
+    placeObject.place.userNotes = location.userNotes;
+    console.log("REVISED place object is: ", placeObject);
+    UserService.updatePlace(placeObject);
+  };
 
-  // $scope.getThisLocation();
-
-  $scope.editPlace();
 
   }]);
 

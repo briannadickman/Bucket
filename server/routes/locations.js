@@ -71,11 +71,9 @@ router.post('/', function(req,res){
 });
 
 router.put('/', function(req, res){
-  console.log('Router.put has: ', req.body);
-  console.log("Router.put id: ", req.body.place._id);
   var id = req.body.place._id;
 
-  Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true}}, {new: true}, function(err, updatedLocation){
+  Location.findOneAndUpdate({'_id' : id}, {$set:{'visited' : true, 'userNotes' : req.body.place.userNotes}}, {new: true}, function(err, updatedLocation){
       if(err) {
         console.log('Error finding messages', err);
       }
@@ -85,7 +83,6 @@ router.put('/', function(req, res){
 
 
 router.delete('/:id', function(req, res){
-  console.log('Router.delete has: ', req.params);
   var id = req.params.id;
 
   Location.deleteOne({'_id' : id}, function(err, deletedLocation){
