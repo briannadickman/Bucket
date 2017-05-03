@@ -1,8 +1,53 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'xeditable']);
 
 /// Routes ///
-myApp.config(['$routeProvider', '$locationProvider',
-      function($routeProvider, $locationProvider) {
+myApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider',
+      function($routeProvider, $locationProvider, $mdThemingProvider) {
+
+          $mdThemingProvider.theme('default')
+            .primaryPalette('bucketpalette', {
+              'default': '500', // by default use shade 400 from the pink palette for primary intentions
+              'hue-1': 'A100', // use shade 100 for the <code>md-hue-1</code> class //secondar
+              'hue-2': '300', // use shade 600 for the <code>md-hue-2</code> class //gray
+              'hue-3': '800' // use shade A100 for the <code>md-hue-3</code> class //warn
+            });
+
+            $mdThemingProvider.definePalette('bucketpalette', {
+                '50': 'fef6ed',
+                '100': 'fce8d3',
+                '200': 'fbd9b5',
+                '300': '535353',
+                '400': 'f7be81',
+                '500': '171729',
+                '600': 'f5ab63',
+                '700': 'f3a258',
+                '800': 'FFCC30',
+                '900': 'f9cb9c',
+                'A100': 'F4F4F4',
+                'A200': 'a4a4a4',
+                'A400': 'dadada',
+                'A700': 'ffd8bc',
+                'contrastDefaultColor': 'light',
+                'contrastDarkColors': [
+                  '50',
+                  '100',
+                  '200',
+                  '300',
+                  '400',
+                  '500',
+                  '600',
+                  '700',
+                  '800',
+                  '900',
+                  'A100',
+                  'A200',
+                  'A400',
+                  'A700'
+                ],
+                'contrastLightColors': ['500', 'A100', '800']
+              });
+
+
   $locationProvider.hashPrefix('');
 
   $routeProvider
@@ -85,17 +130,12 @@ myApp.config(['$routeProvider', '$locationProvider',
     .when('/landing', {
       templateUrl: 'views/templates/landing.html',
       controller: 'LandingController',
-      controllerAs: 'landing',
-      resolve: {
-        getuser : ['UserService', function(UserService){
-          return UserService.getuser();
-        }]
-      }
+      controllerAs: 'landing'
     })
-    .when('/header', {
-      templateUrl: 'views/templates/header.html',
-      controller: 'HeaderController',
-      controllerAs: 'header',
+    .when('/places', {
+      templateUrl: 'views/templates/places.html',
+      controller: 'PlacesController',
+      controllerAs: 'places',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
@@ -103,6 +143,6 @@ myApp.config(['$routeProvider', '$locationProvider',
       }
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'landing'
     });
 }]);

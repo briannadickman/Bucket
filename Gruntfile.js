@@ -85,6 +85,23 @@ module.exports = function(grunt){
               'angular-material-icons.min.js',
               'angular-material-icons.css'],
         dest: 'server/public/vendors/angular-material-icons/'
+      },
+      angularXeditable: {
+        expand: true,
+        cwd: 'node_modules/angular-xeditable/dist/',
+        src: ['css/xeditable.css',
+              'css/xeditable.min.css',
+              'js/xeditable.js',
+              'js/xeditable.min.js'],
+        dest: 'server/public/vendors/angular-xeditable/'
+      },
+      alertifyjs: {
+        expand: true,
+        cwd: 'node_modules/alertifyjs/build/',
+        src: ['css/themes/default.min.css',
+              'css/alertify.min.css',
+              'alertify.min.js'],
+        dest: 'server/public/vendors/alertifyjs/'
       }
     },
     watch: {

@@ -1,12 +1,16 @@
 <div ng-include="'views/partials/nav.html'"></div>
+<!-- <div class='background-color'> -->
 
-  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right"  aria-label="Add Location" href='#/add'>
+  <!-- <md-button href='#/places'>To Places</md-button> -->
+
+  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right md-primary md-hue-3"  aria-label="Add Location" href='#/add' headerMenuBtn>
     <i class="material-icons" id='addButton'>add</i>
   </md-button>
 
 <div class="list_container">
 
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
+      <!-- <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'> -->
+      <md-card md-theme="{{ showDarkTheme ? 'hue-2' : 'default' }}" ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
 
         <md-card-actions layout="row">
 
@@ -51,5 +55,5 @@
         </md-card-actions>
       </md-card>
 </div>
-
-</div>
+<!--
+</div> -->

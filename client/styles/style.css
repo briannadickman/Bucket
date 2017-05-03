@@ -1,3 +1,7 @@
+.background-color {
+  background-color: #A4A4A4;
+}
+
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
@@ -77,9 +81,9 @@ md-nav-bar {
   background-color: transparent !important;
 }
 
-md-content md-nav-bar {
-  background: #f6f6f6;
-}
+/*md-content md-nav-bar {
+  background: transparent;
+}*/
 
 md-content md-nav-bar md-tabs-wrapper {
   background: white;
@@ -90,5 +94,21 @@ md-content h1:first-child {
 }
 
 md-card .md-actions:not(.layout-column) .md-button.md-icon-button:last-of-type, md-card md-card-actions:not(.layout-column) .md-button.md-icon-button:last-of-type {
-     margin-right: 0px; 
+     margin-right: 0px;
+}
+
+#headerTitle {
+  font-family: 'Architects Daughter';
+  color: #f4f4f4;
+  font-size: 32px;
+  text-align: center;
+}
+
+#headerMenuBtn {
+  color: #f4f4f4;
+}
+
+h1:focus {
+   outline: none;
+   border: 0;
 }
