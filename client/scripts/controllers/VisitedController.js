@@ -16,12 +16,12 @@ myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserServ
   };
 
 
-  // MENU OPEN
-  var originatorEv;
-  $scope.openMenu = function($mdMenu, ev) {
-      originatorEv = ev;
-      $mdMenu.open(ev);
-    };
+  // // MENU OPEN
+  // var originatorEv;
+  // $scope.openMenu = function($mdMenu, ev) {
+  //     originatorEv = ev;
+  //     $mdMenu.open(ev);
+  //   };
 
   // MENU OPTION EDIT
   $scope.editPlace = function(){
@@ -29,10 +29,8 @@ myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserServ
   };
 
   // MENU OPTION DELETE
-  $scope.deletePlace = function(){
-    console.log('Delete Place clicked!');
-  };
-  
+  $scope.deletePlace = UserService.deletePlace;
+
 
   $scope.getPlaces();
 }]);

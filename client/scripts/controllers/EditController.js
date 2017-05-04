@@ -30,7 +30,7 @@ myApp.controller('EditController', ['$scope', '$http', '$location', 'UserService
 
 
   // TYPES OF ESTABLISHMENTS
-  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Travel').split(' ').map(function(type){
+  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Services Gym Parks').split(' ').map(function(type){
       return {type: type};
   });
 

@@ -1,15 +1,16 @@
 <div class="container" layout='column' layout-align='center center'>
-  <md-content>
 
-    <md-card>
-        <img ng-src="../styles/imgs/mplsSkyline.jpg" class="md-card-image" alt="Minneapolis Skyline">
-    </md-card>
+  <div class="md-card-wrapper">
 
-        <div layout='row' layout-align='center center' layout-wrap>
-          <md-button href="#/home">Login</md-button>
-          <md-button href="#/register">Register</md-button>
-        </div>
+    <span layout='row' layout-align='center center' layout-wrap>
+      <md-button class='md-raised md-primary md-hue-3' href="#/home">Login</md-button>
+      <md-button class='md-raised md-primary md-hue-1' href="#/register">Register</md-button>
+    </span>
 
-  </md-content>
+      <md-card>
+        <img ng-src="../styles/imgs/mplsSkyline.jpg" alt="Minneapolis Skyline" id='landingPageImg'>
+      </md-card>
+
+  </div>
 
 </div>

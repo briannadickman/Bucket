@@ -9,46 +9,41 @@
       <md-card md-theme="{{ showDarkTheme ? 'primary' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
 
         <md-card-header layout='row' md-colors="::{backgroundColor: 'default-primary-A100'}">
-           <md-card-title-text flex='90'>
+           <md-card-title-text flex='80'>
              <span class="md-title">{{place.name}}</span>
            </md-card-title-text>
 
-           <md-menu id="cardMenu" flex='10'>
-               <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
-                 <i class="material-icons">more_vert</i>
-               </md-button>
-               <md-menu-content width="3">
-                 <md-menu-item>
-                   <md-button ng-click="getThisPlace(place)" href='#/edit'>
-                     <b>EDIT</b>
-                   </md-button>
-                 </md-menu-item>
-                 <md-menu-divider></md-menu-divider>
-                 <md-menu-item>
-                   <md-button ng-click="deletePlace(place)">
-                     <b>DELETE</b>
-                   </md-button>
-                 </md-menu-item>
-               </md-menu-content>
-            </md-menu>
+            <md-button class="md-icon-button" aria-label="More" ng-click="getThisPlace(place)" href='#/edit' flex='10'>
+              <i class="material-icons">edit</i>
+            </md-button>
+
+            <md-button class="md-icon-button" aria-label="More" ng-click="deletePlace(place)" flex='10'>
+              <i class="material-icons">delete</i>
+            </md-button>
+
       </md-card-header>
 
         <md-card-content layout='row'>
           <div flex='80'>
-            <span class="md-subhead">{{place.type}}</span><br>
-            <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+            <span class="md-subhead">"{{place.recNotes}}"</span><br>
+            <span class="md-body-2">-{{place.recommender}}</span><br>
           </div>
 
            <md-card-image flex='20'>
              <div class="md-media-sm card-media">
-               <img src="../styles/imgs/018-hotel.png" class="md-card-image" alt="place image"/>
+               <img src="../styles/imgs/{{place.image}}" class="md-card-image" alt="place image"/>
              </div>
            </md-card-image>
          </md-card-content>
 
-       <md-card-actions layout="row" layout-align="end center">
-         <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
-         <md-button ng-click='expandPanel()'>See More...</md-button>
+       <md-card-actions layout="row" layout-align='end center'>
+        <div flex='5'></div>
+        <div flex='45'>
+          <span class="md-caption">{{place.type}} | {{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+        </div>
+
+          <md-button ng-click='getThisPlace(place)' href='#/submit' flex='25'>Do This!</md-button>
+          <md-button ng-click='getThisPlace(place)' href='#/expand' flex='25'>Details</md-button>
        </md-card-actions>
      </md-card>
 

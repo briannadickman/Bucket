@@ -132,6 +132,11 @@ myApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider',
       controller: 'LandingController',
       controllerAs: 'landing'
     })
+    .when('/expand', {
+      templateUrl: 'views/templates/expand.html',
+      controller: 'ExpandController',
+      controllerAs: 'expand'
+    })
     .when('/places', {
       templateUrl: 'views/templates/places.html',
       controller: 'PlacesController',

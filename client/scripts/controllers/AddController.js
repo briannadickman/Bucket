@@ -6,9 +6,6 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
   $scope.location = UserService.locationObject;
   $scope.location.dateAdded = new Date();
 
-
-
-
   // STATES
   $scope.states = ('AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS ' +
    'MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI ' +
@@ -18,7 +15,7 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
 
 
   // TYPES OF ESTABLISHMENTS
-  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Travel').split(' ').map(function(type){
+  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Services Gym Parks').split(' ').map(function(type){
       return {type: type};
   });
 
@@ -31,6 +28,7 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
     $http.post('/locations', location).then(function(response){
       console.log(response.data);
     });
+    $scope.location = '';
   };
 }]);
 

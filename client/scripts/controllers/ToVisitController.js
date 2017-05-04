@@ -10,18 +10,12 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   $scope.getThisPlace = UserService.getThisPlace;
 
 
-  $scope.expandPanel = function(){
-    console.log('expandPanel clicked!');
+  $scope.expandPanel = function(place){
+    UserService.getThisPlace(place);
+    console.log('expandPanel clicked with: ', place);
     //Utilize Expansion Panel Stuff
     //Add in Do This button too.
   };
-
-  // MENU OPEN
-  var originatorEv;
-  $scope.openMenu = function($mdMenu, ev) {
-      originatorEv = ev;
-      $mdMenu.open(ev);
-    };
 
   // MENU OPTION EDIT
   $scope.editPlace = function(){
