@@ -1,28 +1,35 @@
 <md-content layout-padding>
-    <div>
-        <h3>Add New Place</h3>
+    <div layout='row' layout-align='center center'>
+        <h3 class='md-headline'>Add New Place</h3>
+    </div>
         <form name='newPlaceForm'>
 
-            <div layout-gt-xs='row'>
+            <div flex-sm>
                 <md-input-container class='md-block' flex-gt-xs>
                     <label>Name of Place</label>
                     <input ng-model='location.name'>
                 </md-input-container>
-
-                <md-input-container class='md-block' flex-gt-xs>
-                    <label>Date Added</label>
-                    <md-datepicker ng-model='location.dateAdded'></md-datepicker>
-                </md-input-container>
-
-                <md-input-container class='md-block' flex-gt-xs>
-                    <label>Type</label>
-                    <md-select ng-model='location.type'>
-                        <md-option ng-repeat='type in types' value='{{type.type}}'>
-                            {{type.type}}
-                        </md-option>
-                    </md-select>
-                </md-input-container>
             </div>
+
+              <div layout='row'>
+                <!-- <div flex-xs> -->
+                  <md-input-container flex="35">
+                      <label>Date Added</label>
+                      <md-datepicker class='md-primary md-hue-3' md-hide-icons="calendar" md-open-on-focus ng-model='location.dateAdded'></md-datepicker>
+                    </md-input-container>
+                <!-- </div> -->
+
+                <!-- <div flex-xs> -->
+                  <md-input-container flex="65">
+                      <label>Type</label>
+                      <md-select ng-model='location.type'>
+                          <md-option ng-repeat='type in types' value='{{type.type}}'>
+                              {{type.type}}
+                            </md-option>
+                      </md-select>
+                  </md-input-container>
+                <!-- </div> -->
+              </div>
 
             <div layout-gt-xs='row'>
                 <md-input-container class='md-block' flex-gt-xs>
@@ -36,8 +43,10 @@
                     <label>City</label>
                     <input ng-model='location.city'>
                 </md-input-container>
+            </div>
 
-                <md-input-container class='md-block' flex-gt-xs>
+            <div layout='row'>
+                <md-input-container flex='50'>
                     <label>State</label>
                     <md-select ng-model='location.state'>
                         <md-option ng-repeat='state in states' value='{{state.abbrev}}'>
@@ -46,7 +55,7 @@
                     </md-select>
                 </md-input-container>
 
-                <md-input-container class='md-block' flex-gt-xs>
+                <md-input-container flex='50'>
                     <label>Zip Code</label>
                     <input ng-model='location.zipcode'>
                 </md-input-container>
@@ -66,14 +75,14 @@
                 </md-input-container>
 
                 <md-input-container class='md-block' flex-gt-xs>
-                    <label>Notes</label>
+                    <label>Recommendations</label>
                     <input ng-model='location.recNotes'>
                 </md-input-container>
             </div>
 
             <div layout="row" layout-align="end center">
-                <md-button class='md-raised' href='#/tovisit'>Cancel</md-button>
-                <md-button class='md-raised' ng-click='addNewPlace(location)' href='#/tovisit'>Add New Event</md-button>
+                <md-button class='md-raised md-primary md-hue-1' href='#/tovisit'>Cancel</md-button>
+                <md-button class='md-raised md-primary md-hue-3' ng-click='addNewPlace(location)' href='#/tovisit'>Add New Event</md-button>
             </div>
 
         </form>

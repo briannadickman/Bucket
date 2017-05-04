@@ -7,6 +7,7 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
   $scope.placeObject = UserService.placeObject;
   $scope.updatePlace = UserService.updatePlace;
   $scope.location.dateVisited = new Date();
+  $scope.location.dateAdded = UserService.placeObject.place.dateAdded;
 
   // $scope.submitPlace = UserService.submitPlace;
 

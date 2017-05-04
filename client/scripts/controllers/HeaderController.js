@@ -18,4 +18,10 @@ myApp.controller('HeaderController', ['$scope', '$http', '$location', 'UserServi
     $scope.logout();
   };
 
+  // NAV HIGHLIGHT
+  function HeaderController($scope) {
+    $scope.currentNavItem = 'tovisit';
+  }
+
+
   }]);
