@@ -1,59 +1,55 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<!-- <div class='background-color'> -->
 
-  <!-- <md-button href='#/places'>To Places</md-button> -->
-
-  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right md-primary md-hue-3"  aria-label="Add Location" href='#/add' headerMenuBtn>
+  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-left md-primary md-hue-3"  aria-label="Add Location" href='#/add' headerMenuBtn>
     <i class="material-icons" id='addButton'>add</i>
   </md-button>
 
 <div class="list_container">
 
-      <!-- <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'> -->
-      <md-card md-theme="{{ showDarkTheme ? 'hue-2' : 'default' }}" ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
+      <md-card md-theme="{{ showDarkTheme ? 'primary' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
 
-        <md-card-actions layout="row">
+        <md-card-header layout='row' md-colors="::{backgroundColor: 'default-primary-A100'}">
+           <md-card-title-text flex='90'>
+             <span class="md-title">{{place.name}}</span>
+           </md-card-title-text>
 
-        <md-card-title>
-          <!-- IMAGE -->
-          <md-card-title-media>
-              <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
+           <md-menu id="cardMenu" flex='10'>
+               <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
+                 <i class="material-icons">more_vert</i>
+               </md-button>
+               <md-menu-content width="3">
+                 <md-menu-item>
+                   <md-button ng-click="getThisPlace(place)" href='#/edit'>
+                     <b>EDIT</b>
+                   </md-button>
+                 </md-menu-item>
+                 <md-menu-divider></md-menu-divider>
+                 <md-menu-item>
+                   <md-button ng-click="deletePlace(place)">
+                     <b>DELETE</b>
+                   </md-button>
+                 </md-menu-item>
+               </md-menu-content>
+            </md-menu>
+      </md-card-header>
 
-          <md-card-title-text>
-            <span class="md-headline">{{place.name}}</span>
-            <span class="md-subhead">{{place.type}}</span>
+        <md-card-content layout='row'>
+          <div flex='80'>
+            <span class="md-subhead">{{place.type}}</span><br>
             <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
-          </md-card-title-text>
+          </div>
 
-        </md-card-title>
+           <md-card-image flex='20'>
+             <div class="md-media-sm card-media">
+               <img src="../styles/imgs/018-hotel.png" class="md-card-image" alt="place image"/>
+             </div>
+           </md-card-image>
+         </md-card-content>
 
-        <md-menu id="cardMenu" layout-align="end end">
-            <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
-              <i class="material-icons">more_vert</i>
-            </md-button>
-            <md-menu-content width="3">
-              <md-menu-item>
-                <md-button ng-click="getThisPlace(place)" href='#/edit'>
-                  <b>EDIT</b>
-                </md-button>
-              </md-menu-item>
-              <md-menu-divider></md-menu-divider>
-              <md-menu-item>
-                <md-button ng-click="deletePlace(place)">
-                  <b>DELETE</b>
-                </md-button>
-              </md-menu-item>
-            </md-menu-content>
-          </md-menu>
+       <md-card-actions layout="row" layout-align="end center">
+         <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
+         <md-button ng-click='expandPanel()'>See More...</md-button>
+       </md-card-actions>
+     </md-card>
 
-        </md-card-actions>
-
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
-          <md-button ng-click='expandPanel()'>See More...</md-button>
-        </md-card-actions>
-      </md-card>
 </div>
-<!--
-</div> -->

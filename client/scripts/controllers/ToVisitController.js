@@ -32,11 +32,11 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   $scope.deletePlace = UserService.deletePlace;
 
   // TYPES OF ESTABLISHMENTS
-  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Travel').split(' ').map(function(type){
+  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Services').split(' ').map(function(type){
       return {type: type};
   });
 
-  // EXPANSION PANELS
+  // EXPANSION PANELSß
 
 
   // LOAD CARDS ON PAGE LOAD
