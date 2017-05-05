@@ -2,6 +2,9 @@ myApp.controller('HeaderController', ['$scope', '$http', '$location', 'UserServi
   console.log('HeaderController sourced!');
 
   $scope.logout = UserService.logout;
+  $scope.goHome = function(){
+    console.log('Going Home');
+  };
 
   // MENU OPEN
   var originatorEv;
@@ -12,6 +15,13 @@ myApp.controller('HeaderController', ['$scope', '$http', '$location', 'UserServi
 
   $scope.header = function(){
     console.log('logging out');
+    $scope.logout();
   };
+
+  // NAV HIGHLIGHT
+  function HeaderController($scope) {
+    $scope.currentNavItem = 'tovisit';
+  }
+
 
   }]);

@@ -3,22 +3,6 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
   console.log('AddController sourced!');
 
   var userObject = UserService.userObject;
-  console.log(userObject);
-
-  // $scope.location = {
-  //   user: userObject.userName,
-  //   name: '',
-  //   dateAdded: new Date(),
-  //   dateVisited: '',
-  //   address: '',
-  //   website: '',
-  //   recommender: '',
-  //   recNotes: '',
-  //   visited: false,
-  //   type: '',
-  //   userNotes: ''
-  // };
-
   $scope.location = UserService.locationObject;
   $scope.location.dateAdded = new Date();
 
@@ -31,14 +15,12 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
 
 
   // TYPES OF ESTABLISHMENTS
-  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Travel').split(' ').map(function(type){
+  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Services Gym Parks').split(' ').map(function(type){
       return {type: type};
   });
 
   // SUBMIT FORM TO DATABASE (CREATE)
   $scope.addNewPlace = function(location) {
-    // $scope.location.dateVisited = new Date();
-    // $scope.location = UserService.locationObject;
     $scope.location.visited = false;
     $scope.location.user = userObject.userName;
     console.log('Adding New Place: ', location);
@@ -46,6 +28,7 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
     $http.post('/locations', location).then(function(response){
       console.log(response.data);
     });
+    $scope.location = '';
   };
 }]);
 

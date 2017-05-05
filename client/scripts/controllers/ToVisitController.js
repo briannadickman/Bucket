@@ -10,18 +10,12 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   $scope.getThisPlace = UserService.getThisPlace;
 
 
-  $scope.expandPanel = function(){
-    console.log('expandPanel clicked!');
+  $scope.expandPanel = function(place){
+    UserService.getThisPlace(place);
+    console.log('expandPanel clicked with: ', place);
     //Utilize Expansion Panel Stuff
     //Add in Do This button too.
   };
-
-  // MENU OPEN
-  var originatorEv;
-  $scope.openMenu = function($mdMenu, ev) {
-      originatorEv = ev;
-      $mdMenu.open(ev);
-    };
 
   // MENU OPTION EDIT
   $scope.editPlace = function(){
@@ -32,11 +26,11 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
   $scope.deletePlace = UserService.deletePlace;
 
   // TYPES OF ESTABLISHMENTS
-  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Travel').split(' ').map(function(type){
+  $scope.types = ('Restaurant Nightlife Shopping Coffee Beauty Education Pets Religious Arts Entertainment Health Hotels Services').split(' ').map(function(type){
       return {type: type};
   });
 
-  // EXPANSION PANELS
+  // EXPANSION PANELSß
 
 
   // LOAD CARDS ON PAGE LOAD

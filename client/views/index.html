@@ -8,7 +8,11 @@
         <link rel="stylesheet" href='vendors/angular-material/angular-material.min.css'>
         <link rel="stylesheet" href='vendors/angular-material-expansion-panel/md-expansion-panel.min.css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+        <link rel="stylesheet" href="vendors/angular-xeditable/css/xeditable.css" rel="stylesheet">
+        <link rel="stylesheet" href="vendors/alertify/alertify.min.css" />
+        <link rel="stylesheet" href="vendors/alertify/themes/default.min.css" />
 
         <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
         <script type="text/javascript" src="vendors/angular-aria/angular-aria.js"></script>
@@ -16,13 +20,16 @@
         <script type="text/javascript" src="vendors/angular-material/angular-material.js"></script>
         <script type="text/javascript" src="vendors/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="vendors/angular-material-expansion-panel/md-expansion-panel.min.js"></script>
-        <!-- <script type="text/javascript" src="vendors/angular-material-icons/angular-material-icons.min.js"></script> -->
+        <script type="text/javascript" src="vendors/angular-xeditable/js/xeditable.js"></script>
+        <script src="vendors/alertify/alertify.min.js"></script>
         <script type="text/javascript" src="scripts/client.min.js"></script>
 
     </head>
 
     <body>
-      <header ng-include="'/views/partials/header.html'"></header>
+      <div ng-controller='HeaderController'>
+        <header ng-include="'/views/partials/header.html'"></header>
+      </div>
 
       <main ng-view></main>
 

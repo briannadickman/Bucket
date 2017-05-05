@@ -20,12 +20,64 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     recNotes: '',
     visited: '',
     type: '',
-    userNotes: ''
+    userNotes: '',
+    image: ''
   };
 
   function getPlaces(){
     $http.get('/locations').then(function(response){
       locationList.data = response.data;
+      console.log(locationList);
+      for(var i = 0; i < locationList.data.length; i++){
+
+        if(locationList.data[i].type == 'Restaurant'){
+          locationList.data[i].image = '020-fast-food.png';
+        }
+        else if(locationList.data[i].type == 'Nightlife'){
+          locationList.data[i].image = '019-cocktail.png';
+        }
+        else if(locationList.data[i].type == 'Shopping'){
+          locationList.data[i].image = '009-cart.png';
+        }
+        else if(locationList.data[i].type == 'Coffee'){
+          locationList.data[i].image = '015-coffee-cup.png';
+        }
+        else if(locationList.data[i].type == 'Beauty'){
+          locationList.data[i].image = '013-makeup.png';
+        }
+        else if(locationList.data[i].type == 'Education'){
+          locationList.data[i].image = '017-mortarboard.png';
+        }
+        else if(locationList.data[i].type == 'Pets'){
+          locationList.data[i].image = '001-bulldog.png';
+        }
+        else if(locationList.data[i].type == 'Religious'){
+          locationList.data[i].image = '012-prayer.png';
+        }
+        else if(locationList.data[i].type == 'Arts'){
+          locationList.data[i].image = '007-paint-palette.png';
+        }
+        else if(locationList.data[i].type == 'Entertainment'){
+          locationList.data[i].image = '006-video-camera.png';
+        }
+        else if(locationList.data[i].type == 'Health'){
+          locationList.data[i].image = '011-drugs.png';
+        }
+        else if(locationList.data[i].type == 'Hotels'){
+          locationList.data[i].image = '018-hotel.png';
+        }
+        else if(locationList.data[i].type == 'Services'){
+          locationList.data[i].image = '004-tools.png';
+        }
+        else if(locationList.data[i].type == 'Gym'){
+          locationList.data[i].image = '016-dumbbell.png';
+        }
+        else if(locationList.data[i].type == 'Parks'){
+          locationList.data[i].image = '003-tree.png';
+        } else {
+          locationList.data[i].image = 'map.png';
+        }
+      }
     });
   }
 
@@ -33,7 +85,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     console.log("getting this place: ", place);
     placeObject.place = place;
   }
-  
+
 
   return {
     userObject : userObject,
@@ -85,7 +137,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     logout : function() {
         $http.get('/user/logout').then(function(response) {
           console.log('logged out');
-          $location.path("/home");
+          $location.path("/landing");
         });
     }
   };

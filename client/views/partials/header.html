@@ -1,20 +1,11 @@
-<!-- <md-toolbar class="md-accent">
-<div layout="row" class="md-toolbar-tools">
-  <md-button aria-label="Settings" layout-align='start center'>
-    <i class="material-icons">menu</i>
-  </md-button>
+<md-toolbar class="md-default">
+      <div class="md-toolbar-tools" layout='row' id='headerTitle'>
 
-    <h1>Bucket //</h1>
-
-  </div>
-</md-toolbar> -->
-
-<md-toolbar class="md-accent">
-      <div class="md-toolbar-tools">
+          <h1 flex md-truncates href='#/tovisit'>Bucket //</h1>
 
       <md-menu>
-        <md-button class="md-icon-button" aria-label="Logout" ng-click="header()">
-          <md-icon md-menu-origin><i class="material-icons">menu</i></md-icon>
+        <md-button class="md-icon-button" aria-label="Logout" ng-click="openMenu($mdMenu, $event)">
+          <md-icon md-menu-origin><i class="material-icons" id='headerMenuBtn'>menu</i></md-icon>
         </md-button>
         <md-menu-content width="3">
           <md-menu-item>
@@ -24,8 +15,5 @@
           </md-menu-item>
         </md-menu-content>
       </md-menu>
-
-        <h2 flex md-truncates>Bucket //</h2>
-
       </div>
     </md-toolbar>

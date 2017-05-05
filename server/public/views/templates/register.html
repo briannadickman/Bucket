@@ -1,17 +1,34 @@
-<div class="container">
-  <h1 class="lead">Register User</h1>
-  <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2>
-  <form ng-submit="registerUser()">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" ng-model="user.username" />
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" ng-model="user.password" />
-    </div>
-    <input class="btn btn-default" type="submit" name="submit" value="Register" />
-    <a href="#home">Cancel</a>
-  </form>
+<div class="container" layout='column' layout-align='center center'>
 
-</div>
+    <div layout='row' layout-align='center center'>
+        <h1 class='md-headline'>Register New User</h1>
+          <h1 class="lead alert alert-danger" role="alert" ng-if="message != ''">{{message}}</h2>
+    </div>
+
+<md-content>
+  <div layout='column' layout-align='center center'>
+      <form ng-submit="registerUser()">
+        <div>
+          <md-input-container class="md-block">
+            <label for="username">Username:</label>
+            <input type="text" ng-model="user.username" />
+          </md-input-container>
+        </div>
+        <div>
+          <md-input-container class="md-block">
+            <label for="password">Password:</label>
+            <input type="password" ng-model="user.password" />
+          </md-input-container>
+        </div>
+        <!-- <input class="btn btn-default" type="submit" name="submit" value="Register" />
+        <a href="#home">Cancel</a> -->
+        <div>
+            <md-button class='md-raised md-primary md-hue-3' type="submit" name='submit'>Register</md-button>
+            <md-button class='md-raised md-primary md-hue-1' href="#landing">Back</md-button>
+        </div>
+
+        </form>
+        </div>
+      </md-content>
+
+  </div>

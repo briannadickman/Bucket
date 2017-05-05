@@ -1,55 +1,50 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-right"  aria-label="Add Location" href='#/add'>
+  <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-left md-primary md-hue-3"  aria-label="Add Location" href='#/add' headerMenuBtn>
     <i class="material-icons" id='addButton'>add</i>
   </md-button>
 
 <div class="list_container">
 
-      <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
+      <md-card md-theme="{{ showDarkTheme ? 'primary' : 'default' }}" md-theme-watch ng-repeat='place in locationList.data | filter: {visited:"false"} | orderBy:"id":true'>
 
-        <md-card-actions layout="row">
+        <md-card-header layout='row' md-colors="::{backgroundColor: 'default-primary-A100'}">
+           <md-card-title-text flex='80'>
+             <span class="md-title">{{place.name}}</span>
+           </md-card-title-text>
 
-        <md-card-title>
-          <!-- IMAGE -->
-          <md-card-title-media>
-              <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
-
-          <md-card-title-text>
-            <span class="md-headline">{{place.name}}</span>
-            <span class="md-subhead">{{place.type}}</span>
-            <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
-          </md-card-title-text>
-
-        </md-card-title>
-
-        <md-menu id="cardMenu" layout-align="end end">
-            <md-button class="md-icon-button" aria-label="More" ng-click="openMenu($mdMenu, $event)">
-              <i class="material-icons">more_vert</i>
+            <md-button class="md-icon-button" aria-label="More" ng-click="getThisPlace(place)" href='#/edit' flex='10'>
+              <i class="material-icons">edit</i>
             </md-button>
-            <md-menu-content width="3">
-              <md-menu-item>
-                <md-button ng-click="getThisPlace(place)" href='#/edit'>
-                  <b>EDIT</b>
-                </md-button>
-              </md-menu-item>
-              <md-menu-divider></md-menu-divider>
-              <md-menu-item>
-                <md-button ng-click="deletePlace(place)">
-                  <b>DELETE</b>
-                </md-button>
-              </md-menu-item>
-            </md-menu-content>
-          </md-menu>
 
-        </md-card-actions>
+            <md-button class="md-icon-button" aria-label="More" ng-click="deletePlace(place)" flex='10'>
+              <i class="material-icons">delete</i>
+            </md-button>
 
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
-          <md-button ng-click='expandPanel()'>See More...</md-button>
-        </md-card-actions>
-      </md-card>
-</div>
+      </md-card-header>
+
+        <md-card-content layout='row'>
+          <div flex='80'>
+            <span class="md-subhead">"{{place.recNotes}}"</span><br>
+            <span class="md-body-2">-{{place.recommender}}</span><br>
+          </div>
+
+           <md-card-image flex='20'>
+             <div class="md-media-sm card-media">
+               <img src="../styles/imgs/{{place.image}}" class="md-card-image" alt="place image"/>
+             </div>
+           </md-card-image>
+         </md-card-content>
+
+       <md-card-actions layout="row" layout-align='end center'>
+        <div flex='5'></div>
+        <div flex='45'>
+          <span class="md-caption">{{place.type}} | {{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+        </div>
+
+          <md-button ng-click='getThisPlace(place)' href='#/submit' flex='25'>Do This!</md-button>
+          <md-button ng-click='getThisPlace(place)' href='#/expand' flex='25'>Details</md-button>
+       </md-card-actions>
+     </md-card>
 
 </div>

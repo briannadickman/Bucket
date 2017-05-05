@@ -1,4 +1,46 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<p>Expand Page</p>
+<md-content class='md-padding'>
+  <md-card>
+      <md-card-header layout='row' md-colors="::{backgroundColor: 'default-primary-A100'}">
+         <md-card-title-text flex='90'>
+           <span class="md-title">{{placeObject.place.name}}</span>
+         </md-card-title-text>
+
+             <md-button class="md-icon-button" aria-label="More" ng-click="getThisPlace(place)" href='#/edit' flex='10'>
+               <i class="material-icons">edit</i>
+             </md-button>
+
+             <md-button class="md-icon-button" aria-label="More" ng-click="deletePlace(place)" flex='10'>
+               <i class="material-icons">delete</i>
+             </md-button>
+
+      </md-card-header>
+
+      <md-card-content layout='row'>
+        <div flex='80'>
+          <span class="md-subhead">Type: {{placeObject.place.type}}</span><br>
+          <span class="md-subhead">Date Added: {{placeObject.place.dateAdded | date:"MM/dd/yyyy"}}</span><br>
+          <span class="md-subhead">Address: {{placeObject.place.address}}</span><br>
+          <span class="md-subhead">{{placeObject.place.city}}</span><br>
+          <span class="md-subhead">{{placeObject.place.state}} {{placeObject.place.zipcode}}</span><br>
+          <span class="md-subhead">Recommender: {{placeObject.place.recommender}}</span><br>
+          <span class="md-subhead">Recommendations: {{placeObject.place.recNotes}}</span><br>
+        </div>
+
+         <md-card-image flex='20'>
+           <div class="md-media-sm card-media">
+             <img src="../styles/imgs/{{placeObject.place.image}}" class="md-card-image" alt="place image"/>
+           </div>
+         </md-card-image>
+       </md-card-content>
+
+       <div layout="row" layout-align="end center">
+         <md-button class='md-raised md-primary md-hue-1' href='#/tovisit'>Back</md-button>
+         <md-button class='md-raised md-primary md-hue-3' ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
+       </div>
+     </md-card>
+</md-content>
+
+
 </div>

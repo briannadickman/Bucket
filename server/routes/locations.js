@@ -24,7 +24,8 @@ var LocationSchema = mongoose.Schema({
 var Location = mongoose.model('location', LocationSchema, 'locations');
 
 router.get('/', function(req, res){
-  Location.find({}, function(err, allLocations){
+  console.log(req.user._id);
+  Location.find({user : req.user._id}, function(err, allLocations){
       if(err) {
         console.log('Error finding messages', err);
       }
@@ -45,7 +46,7 @@ router.get('/this', function(req, res){
 
 router.post('/', function(req,res){
     var location = new Location({
-        user: req.body.user,
+        user: req.user._id,
         name: req.body.name,
         dateAdded: req.body.dateAdded,
         dateVisited: req.body.dateVisited,
