@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'xeditable']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'angularCSS']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider',
@@ -47,6 +47,15 @@ myApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider',
                 'contrastLightColors': ['500', 'A100', '800']
               });
 
+  myApp.directive('myDirective', function () {
+      return {
+        restrict: 'E',
+        templateUrl: 'my-directive/my-directive.html',
+        controller: function ($scope, $css) {
+          $css.bind('my-directive/my-directive.css', $scope);
+          }
+        };
+  });
 
   $locationProvider.hashPrefix('');
 
@@ -130,22 +139,13 @@ myApp.config(['$routeProvider', '$locationProvider', '$mdThemingProvider',
     .when('/landing', {
       templateUrl: 'views/templates/landing.html',
       controller: 'LandingController',
-      controllerAs: 'landing'
+      controllerAs: 'landing',
+      css: 'styles/landing.css'
     })
     .when('/expand', {
       templateUrl: 'views/templates/expand.html',
       controller: 'ExpandController',
       controllerAs: 'expand'
-    })
-    .when('/places', {
-      templateUrl: 'views/templates/places.html',
-      controller: 'PlacesController',
-      controllerAs: 'places',
-      resolve: {
-        getuser : ['UserService', function(UserService){
-          return UserService.getuser();
-        }]
-      }
     })
     .otherwise({
       redirectTo: 'landing'

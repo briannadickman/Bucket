@@ -19,7 +19,7 @@ module.exports = function(grunt){
       css: {
         expand: true,
         cwd: 'client/styles',
-        src: ['style.css', '**/*.*'],
+        src: ['*.*', '**/*.*'],
         dest: 'server/public/styles/'
       },
       bootstrap: {
@@ -86,22 +86,11 @@ module.exports = function(grunt){
               'angular-material-icons.css'],
         dest: 'server/public/vendors/angular-material-icons/'
       },
-      angularXeditable: {
+      angularCSS: {
         expand: true,
-        cwd: 'node_modules/angular-xeditable/dist/',
-        src: ['css/xeditable.css',
-              'css/xeditable.min.css',
-              'js/xeditable.js',
-              'js/xeditable.min.js'],
-        dest: 'server/public/vendors/angular-xeditable/'
-      },
-      alertifyjs: {
-        expand: true,
-        cwd: 'node_modules/alertifyjs/build/',
-        src: ['css/themes/default.min.css',
-              'css/alertify.min.css',
-              'alertify.min.js'],
-        dest: 'server/public/vendors/alertifyjs/'
+        cwd: 'node_modules/angular-css/',
+        src: ['angular-css.min.js'],
+        dest: 'server/public/vendors/angular-css/'
       }
     },
     watch: {

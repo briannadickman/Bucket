@@ -112,21 +112,8 @@ h1:focus {
 md-card-header {
   height: 60px;
 }
-/*
-.md-card-wrapper {
-  background-size:     cover;
-    background-repeat:   no-repeat;
-    background-position: center center;
-}*/
 
-/*.md-card-wrapper {
-  position: relative;
-    width: 40%;
-  span {
-      position: absolute;
-      top: 20%;
-      right: 20%;
-      color: white;
-      font-size: 34px;
-    }
-}*/
+h3 {
+  font-family: 'Architects Daughter';
+  color: #171729;
+}

@@ -1,0 +1,30 @@
+body, html {
+  height: 100%;
+  background-image: url('../styles/imgs/pnwMap.jpg');
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landingPageDiv {
+  background-color: rgba(244, 244, 244, 0.5);
+  padding: 15px;
+  border: 4px rgba(#171729, 0.75); solid;
+  color: #171729;
+  width: 250px;
+  height: 200px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Architects Daughter';
+  color: #171729;
+  font-size: 32px;
+}
