@@ -1,3 +1,7 @@
+<div ng-controller='HeaderController'>
+  <header ng-include="'/views/partials/header.html'"></header>
+</div>
+
 <div ng-include="'views/partials/nav.html'"></div>
 
   <md-button ng-class="{ visible: selectedTab==0 }" class="md-fab md-fab-bottom-left md-primary md-hue-3"  aria-label="Add Location" href='#/add' headerMenuBtn>

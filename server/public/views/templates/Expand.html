@@ -1,5 +1,3 @@
-<div ng-include="'views/partials/nav.html'"></div>
-
 <md-content class='md-padding'>
   <md-card>
       <md-card-header layout='row' md-colors="::{backgroundColor: 'default-primary-A100'}">
@@ -19,13 +17,16 @@
 
       <md-card-content layout='row'>
         <div flex='80'>
-          <span class="md-subhead">Type: {{placeObject.place.type}}</span><br>
-          <span class="md-subhead">Date Added: {{placeObject.place.dateAdded | date:"MM/dd/yyyy"}}</span><br>
-          <span class="md-subhead">Address: {{placeObject.place.address}}</span><br>
-          <span class="md-subhead">{{placeObject.place.city}}</span><br>
-          <span class="md-subhead">{{placeObject.place.state}} {{placeObject.place.zipcode}}</span><br>
-          <span class="md-subhead">Recommender: {{placeObject.place.recommender}}</span><br>
-          <span class="md-subhead">Recommendations: {{placeObject.place.recNotes}}</span><br>
+          <p class="md-subhead"><b>Date Added:</b><br> {{placeObject.place.dateAdded | date:"MM/dd/yyyy"}}</p>
+          <p class="md-subhead"><b>Type:</b><br> {{placeObject.place.type}}</p>
+          <p class="md-subhead"><b>Address:</b><br>
+                {{placeObject.place.address}}<br>
+                <span class="md-subhead">{{placeObject.place.city}}, {{placeObject.place.state}} {{placeObject.place.zipcode}}</span></p>
+          <p class="md-subhead"><b>Website:</b><br> {{placeObject.place.website}}</p>
+          <p class="md-subhead"><b>Recommender:</b><br> {{placeObject.place.recommender}}</p>
+          <p class="md-subhead"><b>Recommendations:</b><br>"{{placeObject.place.recNotes}}"</p>
+          <!-- <p class="md-subhead" ng-show='visitView'><b>Date Visited:</b><br> {{placeObject.place.dateVisited}}</p>
+          <p class="md-subhead" ng-show='visitView'><b>Personal Notes:</b><br> {{placeObject.place.userNotes}}</p> -->
         </div>
 
          <md-card-image flex='20'>

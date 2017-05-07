@@ -1,3 +1,7 @@
+<div ng-controller='HeaderController'>
+  <header ng-include="'/views/partials/header.html'"></header>
+</div>
+
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div class="list_container">
@@ -21,8 +25,8 @@
 
        <md-card-content layout='row'>
          <div flex='80'>
-           <span class="md-subhead">{{place.type}}</span><br>
-           <span class="md-subhead">{{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+           <span class="md-subhead">"{{place.recNotes}}"</span><br>
+           <span class="md-body-2">-{{place.recommender}}</span><br>
          </div>
 
           <md-card-image flex='20'>
@@ -32,7 +36,12 @@
           </md-card-image>
         </md-card-content>
 
-      <md-card-actions layout="row" layout-align="end center">
+      <md-card-actions layout="row" layout-align='end center'>
+       <div flex='5'></div>
+       <div flex='45'>
+         <span class="md-caption">{{place.type}} | {{place.dateAdded | date:"MM/dd/yyyy"}}</span>
+       </div>
+
         <md-button ng-click='getThisPlace(place)' href='#/submit'>Do This!</md-button>
         <md-button ng-click='getThisPlace(place)' href='#/expand'>Details</md-button>
       </md-card-actions>
