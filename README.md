@@ -50,7 +50,7 @@ This is version 1.0. Future versions include integration of Google Places and Go
 
 ## Authors
 
-* **Brianna Dickman** - [BriMarieDesigns] (https://brimariedesigns.com)
+* **Brianna Dickman** - [BriMarieDesign] (https://brimariedesign.com)
 
 ## Acknowledgments
 
