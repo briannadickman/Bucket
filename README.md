@@ -57,3 +57,10 @@ This is version 1.0. Future versions include integration of Google Places and Go
 * Thanks to Prime Digital Academy for teaching me how to build fullstack applications such as this one.
 * Thank you to Chris Black for information on the Google Places API
 * Thanks to Anisa Abdulkadir for insights on how to use Angular-CSS to create separate style sheets to create the main landing page.
+
+## Images
+
+![Landing Page](https://cloud.githubusercontent.com/assets/18315757/26768301/8acfe030-496c-11e7-92ec-7f947284b60c.png)
+![To Visit View](https://cloud.githubusercontent.com/assets/18315757/26768299/8a536c26-496c-11e7-9caf-709bfdfab418.png)
+![Adding New Location](https://cloud.githubusercontent.com/assets/18315757/26768321/b342eec2-496c-11e7-9298-bf10b39ca7cc.png)
+![Visited View](https://cloud.githubusercontent.com/assets/18315757/26768302/8ad0c28e-496c-11e7-82d1-5d60b88a1590.png)
