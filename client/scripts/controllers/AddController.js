@@ -31,9 +31,3 @@ myApp.controller('AddController', ['$scope', '$http', '$location', 'UserService'
     $scope.location = '';
   };
 }]);
-
-
-
-// CONFIRMATION (ALERT) THAT PLACE WAS ADDED SUCCESSFULLY
-
-// AUTOCOMPLETE FOR SEARCH FUNCTION USING GOOGLE PLACES(?)

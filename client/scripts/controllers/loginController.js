@@ -17,7 +17,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', 'UserServic
             $location.path('/tovisit');
           } else {
             console.log('failure: ', response);
-            $scope.message = "Wrong!!";
+            $scope.message = "You have entered an incorrect username or password. Please try again.";
           }
         });
       }

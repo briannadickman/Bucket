@@ -6,6 +6,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
   var placeObject = {
     place: ''
   };
+  
   var locationObject = {
     user: '',
     name: '',

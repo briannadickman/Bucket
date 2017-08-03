@@ -9,20 +9,6 @@ myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserServ
   $scope.locationList = UserService.locationList;
   $scope.getThisPlace = UserService.getThisPlace;
 
-  $scope.expandPanel = function(){
-    console.log('expandPanel clicked!');
-    //Utilize Expansion Panel Stuff
-    //Add in Do This button too.
-  };
-
-
-  // // MENU OPEN
-  // var originatorEv;
-  // $scope.openMenu = function($mdMenu, ev) {
-  //     originatorEv = ev;
-  //     $mdMenu.open(ev);
-  //   };
-
   // MENU OPTION EDIT
   $scope.editPlace = function(){
     console.log('Edit Place clicked!');
@@ -33,20 +19,5 @@ myApp.controller('VisitedController', ['$scope', '$http', '$location', 'UserServ
 
 
   $scope.getPlaces();
+  
 }]);
-
-
-// SORT PLACES BY DATE VISITED
-
-// BRING IN IMAGE(THUMBNAIL) FROM ONLINE(?)
-
-// FILTER PLACES BY LOCATION AND TYPE
-
-// GET MORE INFORMATION ABOUT PLACE
-
-// SEARCH FOR PLACE BY NAME
-
-// EDIT EXISTING PLACE
-
-// DELETE EXISTING PLACE
-// ADD DELETE BUTTON TO DELETE THIS ITEM(?)

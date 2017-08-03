@@ -19,9 +19,3 @@ myApp.controller('SubmitController', ['$scope', '$http', '$location', 'UserServi
 
 
   }]);
-
-// CORRECT CONTENT TO EDIT
-
-// CLICKING SUBMIT BUTTON AGAIN SENDS COMPLETED EDITED FORM/OBJECT TO VISITED VIEW
-
-// CONFIRMATION THAT PLACE WAS SUBMITTED AS VISITED

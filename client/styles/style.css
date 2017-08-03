@@ -20,9 +20,6 @@
     margin-top: 10px;
 }
 
-.list_container {
-
-}
 
 .container p{
     margin-top : 14px;
@@ -72,10 +69,6 @@ md-nav-bar {
     min-height: 24px;
     min-width: 24px;
 }
-
-/*.card-media {
-  background-color: #999999;
-}*/
 
 #navBarContent {
   background-color: transparent !important;

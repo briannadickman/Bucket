@@ -30,30 +30,8 @@ myApp.controller('ToVisitController', ['$scope', '$http', '$location', 'UserServ
       return {type: type};
   });
 
-  // EXPANSION PANELSß
-
-
   // LOAD CARDS ON PAGE LOAD
 
   $scope.getPlaces();
 
 }]);
-
-// ADD NEW PLACE
-
-// SUBMIT VISITED PLACE
-
-// SORT PLACES BY DATE ADDED
-
-// BRING IN IMAGE(THUMBNAIL) FROM ONLINE(?)
-
-// FILTER PLACES BY LOCATION AND TYPE
-
-// GET MORE INFORMATION ABOUT PLACE
-
-// SEARCH FOR PLACE BY NAME
-
-// EDIT EXISTING PLACE
-
-// DELETE EXISTING PLACE
-// ADD DELETE BUTTON TO DELETE THIS ITEM(?)
