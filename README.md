@@ -1,9 +1,6 @@
 # Bucket // 
 #### Solo Project for Prime Digital Academy
 
-https://briannadickman.github.io/bucket_app/
-
-
 Have you ever had someone recommend a place to you, only for you to write it down and lose the note, forgetting what they told you to try? This application aims to solve the issue of gathering these recommendations from friends and family when you are traveling or moving to a new location. One side acts as a rapid log of events and locations To Visit, where you can add the address, type of event, and what the person recommended. You can then check these items off your list, add your own feedback, and then move this to the Visited section, which acts as a memory log, and allows a user to check back if they want to visit a location again. 
 
 ## Getting Started
@@ -50,7 +47,7 @@ This is version 1.0. Future versions include integration of Google Places and Go
 
 ## Authors
 
-* **Brianna Dickman** - [BriMarieDesign] (https://brimariedesign.com)
+* **Brianna Dickman**
 
 ## Acknowledgments
 
